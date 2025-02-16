@@ -1,0 +1,47 @@
+# Gradle
+.gradle/
+build/
+target/
+out/
+
+# Eclipse
+.project
+.classpath
+.settings/
+bin/
+
+# IntelliJ
+.idea
+*.ipr
+*.iml
+*.iws
+.project
+.settings
+.classpath
+
+# NetBeans
+nb-configuration.xml
+
+# Visual Studio Code
+.vscode
+.factorypath
+
+# OSX
+.DS_Store
+
+# Vim
+*.swp
+*.swo
+
+# patch
+*.orig
+*.rej
+
+# Local environment
+.env
+
+# TLS Certificates
+.certs/
+
+# Web Bundler
+node_modules/

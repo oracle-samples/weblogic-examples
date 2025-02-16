@@ -16,9 +16,10 @@ cd weblogic-examples
 
 ### List examples available
 
-| Example | Description | Runs on 15.1.1 | 14.1.2 | 12.2.1.4 | Notes |
-| --- | --- | --- | --- | --- | --- |
-| [Basic Faces](./samples/basicfaces/README.md) | A simple JavaServer Faces (JSF) application that demonstrates how to deploy a web application to WebLogic. | ✅ 🟡 | ✅ | ✅ | 🟡 Not optimized to Jakarta 9.1 descriptors |
+| Example | Description | Runs on 15.1.1 | 14.1.2 | 12.2.1.4 | Highlights | Notes |
+| --- | --- | --- | --- | --- | --- | --- |
+| [Basic Faces](./samples/basicfaces/README.md) | A simple JavaServer Faces (JSF) application that demonstrates how to deploy a web application to WebLogic. | ✅ 🟡 | ✅ | ✅ | jsf | 🟡 Not optimized to Jakarta EE 9.1 descriptors |
+| [Simple Servlet](./samples/simpleservlet/README.md) | A simple servlet application that demonstrates how to deploy a web application to WebLogic. | ✅ | ❌ | ❌ | servlet <br/> jakarta EE 9.1 | |
 
 You also can go to the tutorials folder and follow the instructions to run the examples.
 

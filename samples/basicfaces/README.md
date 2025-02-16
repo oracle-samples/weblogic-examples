@@ -6,7 +6,7 @@ Welcome to the Basic Faces example! This example demonstrates how to deploy a si
 
 The application can be packaged using:
 
-```shell script
+```shell
 gradle build
 ```
 

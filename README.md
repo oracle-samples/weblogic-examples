@@ -14,9 +14,15 @@ git clone https://github.com/oracle-samples/weblogic-examples.git
 cd weblogic-examples
 ```
 
+### List examples available
+
+| Example | Description | Runs on 15.1.1 | 14.1.2 | 12.2.1.4 |
+| --- | --- | --- | --- | --- |
+| [Basic Faces](./samples/basicfaces/README.md) | A simple JavaServer Faces (JSF) application that demonstrates how to deploy a web application to WebLogic. | 🟡 | ✅ | ✅ |
+
 You also can go to the tutorials folder and follow the instructions to run the examples.
 
-Here the list of tutorials available:
+### List tutorials available
 
 | Tutorial | Description |
 | --- | --- |

@@ -13,5 +13,3 @@ mvn package
 > Note: If build correctly, you will see a `target` directory with the `simpleservlet-1.0.0-SNAPSHOT.war` file.
 
 To deploy the application, you can use the WebLogic Server Remote Console or the WebLogic Scripting Tool (WLST).
-
-Access and test the application and make sure it works as expected. You can access the application at `https://localhost:7001/simpleservlet`.

@@ -16,10 +16,11 @@ cd weblogic-examples
 
 ### Examples
 
-| Example | Description | Runs on 15.1.1 | 14.1.2 | 12.2.1.4 | Builder | Highlights | Notes |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| [Basic Faces](./samples/basicfaces/README.md) | A simple JSF application that demonstrates how to deploy a web application to WebLogic. | ✅ 🟡 | ✅ | ✅ | Gradle | JSF | 🟡 Not optimized for Jakarta EE 9.1 descriptors |
-| [Simple Servlet](./samples/simpleservlet/README.md) | A simple servlet application that demonstrates how to deploy a web application to WebLogic. | ✅ | ❌ | ❌ | Maven | servlet <br/> Jakarta EE 9.1 | |
+| Example | Source | Description | Runs on 15.1.1 | 14.1.2 | 12.2.1.4 | Builder | Highlights | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| [Basic Faces](./samples/basicfaces/README.md) | [this repo](./samples/basicfaces/) | A simple JSF application that demonstrates how to deploy a web application to WebLogic. | ✅ 🟡 | ✅ | ✅ | Gradle | JSF | 🟡 Not optimized for Jakarta EE 9.1 descriptors |
+| [Simple Servlet](./samples/simpleservlet/README.md) | [this repo](./samples/simpleservlet/) | A simple servlet application that demonstrates how to deploy a web application to WebLogic. | ✅ | ❌ | ❌ | Maven | servlet <br/> Jakarta EE 9.1 | |
+| [WebLogic Cafe](https://github.com/microsoft/weblogic-on-azure/blob/main/README.md) | [Microsoft repo](https://github.com/microsoft/weblogic-on-azure) | A sample application that showcases the WebLogic on Azure solution. | 🟡 | ✅ | ✅ | Maven | OpenRewrite | 🟡 To deploy to WebLogic 15.1.1, follow the [tutorial](./tutorials/migrate/weblogic-cafe-15.1.1/README.md) to migrate the app to use Jakarta EE 9.1 and Java 21 on WebLogic |
 
 Also, check out the tutorials and follow the instructions to run them.
 
@@ -27,7 +28,8 @@ Also, check out the tutorials and follow the instructions to run them.
 
 | Tutorial | Description |
 | --- | --- |
-| [WebLogic Cafe Example](./tutorials/weblogic-cafe/README.md) | This tutorial shows you how to migrate the WebLogic Cafe sample application to WebLogic 14.1.2 and Java 21. |
+| [Migrate WebLogic Cafe to WLS 14.1.2](./tutorials/migrate/weblogic-cafe-14.1.2/README.md) | This tutorial shows you how to migrate the WebLogic Cafe sample application to WebLogic 14.1.2 and Java 21. |
+| [Migrate WebLogic Cafe to WLS 15.1.1(BETA)](./tutorials/migrate/weblogic-cafe-15.1.1/README.md) | This tutorial shows you how to migrate the WebLogic Cafe sample application to WebLogic 15.1.1 (BETA), Java 21 and Jakarta EE 9.1. |
 
 ## Get Help
 

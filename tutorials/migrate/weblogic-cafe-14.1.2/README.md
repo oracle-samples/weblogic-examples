@@ -4,7 +4,7 @@ As of WebLogic Server 14.1.2, Oracle provides OpenRewrite recipes to help you up
 
 ## WebLogic Cafe Example
 
-We'll step through this tutorial using the WebLogic Cafe example that is available on GitHub: [https://github.com/microsoft/weblogic-on-azure](https://github.com/microsoft/weblogic-on-azure). This is a simplified Java EE application that is used in many demos. We will run the `rewrite-weblogic` recipes locally, so we'll need a copy of the code locally, too.
+We'll step through this tutorial using the WebLogic Cafe example that is available on GitHub: [`https://github.com/microsoft/weblogic-on-azure`](https://github.com/microsoft/weblogic-on-azure). This is a simplified Java EE application that is used in many demos. We will run the `rewrite-weblogic` recipes locally, so we'll need a copy of the code locally, too.
 
 ### Step 1: Start by making sure that you have the prerequisites
 
@@ -54,7 +54,6 @@ mvn -U org.openrewrite.maven:rewrite-maven-plugin:run \
 This command applies the following recipes:
 
 - `com.oracle.weblogic.rewrite.UpgradeTo1412`
-- `com.oracle.weblogic.rewrite.UpgradeWeblogicMavenPropertyVersion`
 - `org.openrewrite.java.migrate.UpgradeToJava21`
 
 OpenRewrite updates the `weblogic-cafe` code in the following ways:

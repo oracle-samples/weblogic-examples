@@ -1,16 +1,16 @@
-# Examples for Rewrite-WebLogic
+# Rewrite WebLogic Upgrade to 15.1.1 Tutorial
 
-Oracle provides OpenRewrite recipes to help you upgrade your applications to new WebLogic, Java versions and Jakarta EE. This example demonstrates how to use the recipes to upgrade a sample application.
+Oracle provides OpenRewrite recipes to help you upgrade your applications to new WebLogic and Java versions, and to Jakarta EE. This tutorial demonstrates how to use the recipes to upgrade a sample application.
 
 ## WebLogic Cafe Example
 
-We'll step through this tutorial using the WebLogic Cafe example that is available on GitHub: [https://github.com/microsoft/weblogic-on-azure](https://github.com/microsoft/weblogic-on-azure). This is a simplified Java EE application that is used in many demos. We will run the rewrite-weblogic recipes locally, so we'll need a copy of the code locally, too.
+We'll step through this tutorial using the WebLogic Cafe example that is available on GitHub: [https://github.com/microsoft/weblogic-on-azure](https://github.com/microsoft/weblogic-on-azure). This is a simplified Java EE application that is used in many demos. We will run the `rewrite-weblogic` recipes locally, so we'll need a copy of the code locally, too.
 
 ### Step 1: Start by making sure that you have the prerequisites
 
 1. Make sure that you have Java 8 or later installed.
 1. Make sure that you have Maven 3.x installed.
-1. Clone the weblogic-on-azure repo:
+1. Clone the `weblogic-on-azure` repo:
 
 ```shell
 git clone https://github.com/microsoft/weblogic-on-azure.git
@@ -22,7 +22,7 @@ cd weblogic-on-azure/javaee/weblogic-cafe
 
 ### Step 2: Sync Maven dependencies
 
-For OpenRewrite to run, Maven dependencies must be resolved. If needed, run `mvn clean install` for missing dependencies, such as:
+For OpenRewrite to run, Maven dependencies must be resolved. If needed, run `mvn clean install` for missing dependencies:
 
 ```shell
 mvn clean install
@@ -32,9 +32,9 @@ Or, you can use other commands as well, such as `mvn dependency:resolve`.
 
 ### Step 3: Run the Maven command to run OpenRewrite
 
-For this example, we will upgrade the weblogic-cafe application to run on WebLogic Server 15.1.1 with JDK 21, including Jakarta EE 9.1. Alternatively, you can upgrade the application to run on WebLogic Server 15.1.1 with JDK 17.
+For this example, we will upgrade the WebLogic Cafe application to run on WebLogic Server 15.1.1 with JDK 21, including Jakarta EE 9.1. Alternatively, you can upgrade the application to run on WebLogic Server 15.1.1 with JDK 17.
 
-1. Open a terminal at the weblogic-cafe folder.
+1. Open a terminal at the `weblogic-cafe` folder.
 
     You must open to the folder where the POM file is located:
     ``` weblogic-on-azure/javaee/weblogic-cafe ```
@@ -58,12 +58,12 @@ This command applies the following recipes:
 - `org.openrewrite.java.migrate.UpgradeToJava21`
 - `com.oracle.weblogic.rewrite.JakartaEE9_1`
 
-OpenRewrite updates the weblogic-cafe code in the following ways:
+OpenRewrite updates the `weblogic-cafe` code in the following ways:
 
-- Pom.xml – updates versions and namespaces
+- `pom.xml` – updates versions and namespaces
 - Source files –
-  - Updates Java dependencies and related statements
-  - Updates WebLogic API dependencies and related statements
+  - Updates Java dependencies and related statements.
+  - Updates WebLogic API dependencies and related statements.
   - For removed APIs with no replacement, OpenRewrite inserts a comment in the code stating that the API usage needs to be resolved or removed.
 
 ### Step 3: Review the results
@@ -79,4 +79,4 @@ The following image shows a source file with code changes applied:
 
 ### Step 4: Deploy the application
 
-Optionally, if you have a WebLogic 15.1.1 domain available, deploy the WebLogic Cafe Example application using your standard deployment tools.
+Optionally, if you have a WebLogic 15.1.1 domain available, deploy the WebLogic Cafe example application using your standard deployment tools.

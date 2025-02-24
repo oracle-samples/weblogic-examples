@@ -4,7 +4,7 @@ Oracle provides OpenRewrite recipes to help you upgrade your applications to new
 
 ## WebLogic Cafe Example
 
-We'll step through this tutorial using the WebLogic Cafe example that is available on GitHub: [https://github.com/microsoft/weblogic-on-azure](https://github.com/microsoft/weblogic-on-azure). This is a simplified Java EE application that is used in many demos. We will run the `rewrite-weblogic` recipes locally, so we'll need a copy of the code locally, too.
+We'll step through this tutorial using the WebLogic Cafe example that is available on GitHub: [`https://github.com/microsoft/weblogic-on-azure`](https://github.com/microsoft/weblogic-on-azure). This is a simplified Java EE application that is used in many demos. We will run the `rewrite-weblogic` recipes locally, so we'll need a copy of the code locally, too.
 
 ### Step 1: Start by making sure that you have the prerequisites
 

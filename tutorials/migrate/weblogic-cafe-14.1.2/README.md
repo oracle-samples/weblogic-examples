@@ -1,6 +1,6 @@
-# Rewrite WebLogic Upgrade to 14.1.2 Tutorial
+# Migrate WebLogic Cafe to WLS 14.1.2
 
-As of WebLogic Server 14.1.2, Oracle provides OpenRewrite recipes to help you upgrade your applications to new WebLogic and Java versions. This tutorial demonstrates how to use the recipes to upgrade a sample application.
+As of WebLogic Server 14.1.2, Oracle provides OpenRewrite recipes to help you upgrade your applications to new WebLogic and Java versions. This tutorial demonstrates how to use the recipes to upgrade a sample application to run on WebLogic Server 14.1.2 with JDK 21.
 
 ## WebLogic Cafe Example
 

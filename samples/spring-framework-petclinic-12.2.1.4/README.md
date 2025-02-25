@@ -187,9 +187,26 @@ In case you find a bug suggested improvement for Spring Petclinic for WebLogic
 
 Our issue tracker is available here: https://github.com/oracle-samples/weblogic-examples/issues
 
-# Ackwnowledgement
+# Attribution
 
-This repo is a fork of the [spring-projects/spring-framework-petclinic](https://github.com/spring-projects/spring-framework-petclinic).
+This repo is a fork of the [spring-projects/spring-framework-petclinic](https://github.com/spring-projects/spring-framework-petclinic) example, licensed under the Apache License 2.0. [License](LICENSE.txt) for spring-framework-petclinic is included in this repository. 
+
+# Code Changes
+
+The following code changes where introduced from `spring-framework-petclinic`:
+  * Removed trimDirectiveWhitespaces="true" from tag files under [tag](src/main/webapp/WEB-INF/tags/)
+  * [WebLogic descriptor](src/main/webapp/WEB-INF/weblogic.xml) added.  
+  * Removed jetty deployment descriptor 
+  * [JSTL Tag descriptor](src/main/webapp/WEB-INF/petclinic.tld) added.
+  * Modified mvc-core-config.xml to include the handler servlet name
+    <mvc:default-servlet-handler default-servlet-name="default">.
+  * [Maven Pom](pom.xml)file modified to update dependencies.
+  * mvnw wrapper removed.
 
 
+# License
+
+Copyright (c) 2025 Oracle and/or its affiliates.
+
+Released under the Universal Permissive License v1.0 as shown at https://oss.oracle.com/licenses/upl/.
 

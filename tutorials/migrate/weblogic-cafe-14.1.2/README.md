@@ -2,7 +2,7 @@
 
 As of WebLogic Server 14.1.2, Oracle provides OpenRewrite recipes to help you upgrade your applications to new WebLogic and Java versions. This tutorial demonstrates how to use the recipes to upgrade a sample application to run on WebLogic Server 14.1.2 with JDK 21.
 
-## WebLogic Cafe Example
+## WebLogic Cafe example
 
 We'll step through this tutorial using the WebLogic Cafe example that is available on GitHub: [`https://github.com/microsoft/weblogic-on-azure`](https://github.com/microsoft/weblogic-on-azure). This is a simplified Java EE application that is used in many demos. We will run the `rewrite-weblogic` recipes locally, so we'll need a copy of the code locally, too.
 
@@ -59,7 +59,7 @@ The command applies the following recipes:
 
 OpenRewrite updates the `weblogic-cafe` code in the following ways:
 
-- `pom.xml` – updates versions and namespaces
+- `pom.xml` – Updates versions and namespaces.
 - Source files –
   - Updates Java dependencies and related statements.
   - Updates WebLogic API dependencies and related statements.
@@ -73,7 +73,7 @@ For example, the following image shows file changes for the ```pom.xml``` file i
 
 ![pom file with changes](../../images/pom-sbs.png)
 
-The following image shows a source file with code changes applied:
+The following image shows a source file with the code changes applied:
 
 ![source file with changes](../../images/coffee-java-sbs.png)
 

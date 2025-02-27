@@ -61,6 +61,8 @@ This command applies the following recipes:
 - `com.oracle.weblogic.rewrite.UpgradeTo1511`
 - `org.openrewrite.java.migrate.UpgradeToJava21`
 - `com.oracle.weblogic.rewrite.JakartaEE9_1`
+- `com.oracle.weblogic.rewrite.spring.framework.UpgradeToSpringFramework_6_2`
+- `com.oracle.weblogic.rewrite.hibernate.MigrateHibernate4JakartaEE9`
 
 OpenRewrite updates the `spring-framework-petclinic-12.2.1.4` code in the following ways:
 

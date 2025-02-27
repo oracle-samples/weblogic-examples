@@ -51,8 +51,9 @@ For this example, we will upgrade the WebLogic Cafe application to run on WebLog
       -Drewrite.activeRecipes=com.oracle.weblogic.rewrite.UpgradeTo1511,org.openrewrite.java.migrate.UpgradeToJava21,com.oracle.weblogic.rewrite.JakartaEE9_1 \
       -Drewrite.exportDatatables=true
     ```
+**Note** that this command updates the application to use Java 21. If you want to upgrade to Java 17 instead, replace `UpgradeToJava21` with `UpgradeToJava17`.
 
-This command applies the following recipes:
+The command applies the following recipes:
 
 - `com.oracle.weblogic.rewrite.UpgradeTo1511`
 - `org.openrewrite.java.migrate.UpgradeToJava21`
@@ -92,57 +93,53 @@ As supplied, the application needs a database and a JDBC datasource configuratio
 
 #### Quick-Deployment option
 
-You can optionally deploy the application so that it will use a Derby database and a default JDBC datasource. This is a great option for demos and other dev-centric single-server use cases.
+You can optionally deploy the application so that it will use a local Derby database. This is a great option for demos and other dev-centric single-server use cases.
 
 The quick deployment option requires two changes:
 1. Before starting the WebLogic Server instance, you must set the DERBY_FLAG value to "true" in the shell window where you want to start WebLogic Server:
 
-```shell
-DERBY_FLAG="true"
-export DERBY_FLAG
-```
-Then call ```startWebLogic.sh``` to start the admin server. The startup process will start Derby so that it is ready to interact with the application.
+   ```
+   DERBY_FLAG="true"
+   export DERBY_FLAG
+   ```
+Then run ```startWebLogic.sh``` to start the admin server. The startup process will start Derby so that it is ready to interact with the application.
 
-2. Update the ```persistence.xml``` file so that JPA will use the default data source and will connect to the Derby database:
+2. Add a JDBC datasource to your WebLogic Domain to connect to the local datasource with the following properties:
+   ```
+   <name>webcafe</name>
+   <datasource-type>GENERIC</datasource-type>
+   <jdbc-driver-params>
+      <url>jdbc:derby://localhost:1527/weblogic;ServerName=localhost;databaseName=weblogic;create=true</url>
+      <driver-name>org.apache.derby.jdbc.ClientXADataSource</driver-name>
+      <properties>
+        <property>
+          <name>databaseName</name>
+          <value>weblogic;create=true</value>
+        </property>
+        <property>
+          <name>serverName</name>
+          <value>localhost</value>
+        </property>
+        <property>
+          <name>user</name>
+          <value>webcafe</value>
+        </property>
+        <property>
+          <name>portNumber</name>
+          <value>1527</value>
+        </property>
+      </properties>
+      <password-encrypted>placeholder</password-encrypted>
+    </jdbc-driver-params>
+    <jdbc-data-source-params>
+      <jndi-name>jdbc/WebLogicCafeDB</jndi-name>
+      <global-transactions-protocol>TwoPhaseCommit</global-transactions-protocol>
+    </jdbc-data-source-params>
+   ```
 
-In ```weblogic-on-azure/javaee/weblogic-cafe/src/main/resources/META-INF/persistence.xml```, find the following code block:
-```
-	<persistence-unit name="coffees">
-		<jta-data-source>jdbc/WebLogicCafeDB</jta-data-source>
-		<properties>
-			<property
-				name="jakarta.persistence.schema-generation.database.action"
-				value="create" />
-			<property name="openjpa.jdbc.SynchronizeMappings"
-				value="buildSchema" />
-			<property name="eclipselink.logging.level.sql" value="FINE" />
-			<property name="eclipselink.logging.parameters" value="true" />
-			<property name="hibernate.show_sql" value="true" />
-		</properties>
-		<shared-cache-mode>NONE</shared-cache-mode>
-	</persistence-unit>
-```
-Replace the whole ```persistence-unit``` with this code block:
-```shell
-    <persistence-unit name="coffees">
-        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-        <jta-data-source>java:comp/DefaultDataSource</jta-data-source>
-        <properties>
-            <property name="jakarta.persistence.schema-generation.database.action"
-                value="create" />
-            <property name="openjpa.jdbc.SynchronizeMappings"
-                value="buildSchema" />
-            <property name="eclipselink.target-database"
-                value="org.eclipse.persistence.platform.database.DerbyPlatform"/>
-            <property name="eclipselink.target-server" value="localhost"/>
-            <property name="eclipselink.logging.level" value="FINEST"/>
-            <property name="eclipselink.logging.parameters" value="true" />
-            <property name="eclipselink.ddl-generation" value="create-or-extend-tables"/>                               
-        </properties>
-    </persistence-unit>
-```
+   
 
-Save the file and then build the app: 
+After making these changes to your environment,  build the app: 
 
 ```shell
 mvn clean package -Dmaven.test.skip

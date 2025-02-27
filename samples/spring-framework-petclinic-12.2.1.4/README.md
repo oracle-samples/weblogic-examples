@@ -1,10 +1,10 @@
-<!-- 
+<!--
   The code contain in this repository is a fork from https://github.com/spring-projects/spring-framework-petclinic
 
   The following changes were introduced in this version:
   * Removed trimDirectiveWhitespaces="true" from tag files under webapp/WEB-INF/tags/*.tag
   * Added a WebLogic Descriptor.  weblogic.xml
-  * Removed jetty deployment descriptor 
+  * Removed jetty deployment descriptor
   * Added JSTL Tag definition petclinic.tld
   * Modified mvc-core-config.xml to include the handler servlet name
     <mvc:default-servlet-handler default-servlet-name="default"
@@ -14,140 +14,143 @@
 
 # Spring PetClinic Sample Application
 
-This repo is a fork of the [spring-projects/spring-framework-petclinic](https://github.com/spring-projects/spring-framework-petclinic).
+This repo is a fork of the [spring-projects/spring-framework-petclinic](https://github.com/spring-petclinic/spring-framework-petclinic/tree/5.3.x).
 
 This version is for the **Oracle WebLogic community** to deploy a Spring based application on a specific **WebLogic Domain** release.
 The example follows the same **3-layer architecture** (i.e. presentation --> service --> repository) included in spring-framework-petclinic version.
- 
 
-## Understanding the Spring Petclinic application with a few diagrams
+<!--
+## Understanding the Spring PetClinic application with a few diagrams
 
 [ TODO: Update with Diagrams ]
+ -->
 
-## Running petclinic
+## Running PetClinic
 
-### Build WebApplication Archive
+### Build the Web Application Archive (WAR) file
 ```bash
 git clone https://github.com/oracle-samples/weblogic-examples.git
 cd weblogic-examples/12_2_1_4/spring-petclinic
 ./mvnw clean package
 ```
 
-### Deploy to WebLogic Domain
+### Deploy to a WebLogic domain
+
+Use any of the following deployment tools for deploying the PetClinic application to a WebLogic domain.
 
 #### WebLogic Remote Console
 
-You can use WebLogic Remote Console to manage the deployment process of applications to WebLogic Server.
+You can use [WebLogic Remote Console](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-remote-console/administer/set-console.html) to manage the deployment process of applications to WebLogic Server. For more information, see [Deploying Applications](https://docs-uat.us.oracle.com/en/middleware/fusion-middleware/weblogic-remote-console/administer/deploying-applications.html) in the _Oracle WebLogic Remote Console Online Help_.
 
-For general information on the application deployment process, see [Understanding WebLogic Server Deployment](https://docs.oracle.com/pls/topic/lookup?ctx=en/middleware/fusion-middleware/weblogic-remote-console/administer&id=DEPGD-GUID-F6E8BF0B-FBCF-44D2-A33F-13C4EF2E0031) in Deploying Applications to Oracle WebLogic Server.
+For general information about the application deployment process, see [Understanding WebLogic Server Deployment](https://docs.oracle.com/pls/topic/lookup?ctx=en/middleware/fusion-middleware/weblogic-remote-console/administer&id=DEPGD-GUID-F6E8BF0B-FBCF-44D2-A33F-13C4EF2E0031) in _Deploying Applications to Oracle WebLogic Server_.
 
 Installing an application makes its physical file or directory known to WebLogic Server.
 
-This procedure applies to all of the deployment units listed in Supported Deployment Units. 
+This procedure applies to all of the deployment units listed in Supported Deployment Units.
 
-    In the Edit Tree, go to Deployments, then App Deployments.
+1. In the Edit Tree, go to Deployments, then App Deployments.
 
-    Select New.
+2. Select New.
 
-    Enter a name for the application.
+3. Enter a name for the application.
 
-    Select the servers and clusters to which you want to deploy the application.
+4. Select the servers and clusters to which you want to deploy the application.
 
-    Make the archive file or exploded directory known to the Administration Server.
-        If the application is on your file system and you need to upload it to the Administration Server, enable the Upload option. Then, beside Source, click Choose File to browse to the application’s location on your system.
-        If the application is already in the file system of the Administration Server, disable the Upload option. Then, in the Source Path field, enter the file path to the application.
+5. Make the archive file or exploded directory known to the Administration Server.
+      -  If the application is on your file system and you need to upload it to the Administration Server, enable the Upload option. Then, beside Source, click Choose File to browse to the application’s location on your system.
+      -  If the application is already in the file system of the Administration Server, disable the Upload option. Then, in the Source Path field, enter the file path to the application.
 
-    Add a deployment plan, choose another staging mode, or set application behavior at deployment.
+6. Add a deployment plan, choose another staging mode, or set application behavior at deployment.
 
-    Click Create.
+7. Click Create.
 
-You can view the status of running deployment tasks on the Monitoring Tree: Deployments: Deployment Tasks page.
+You can view the status of running deployment tasks on the **Monitoring Tree: Deployments: Deployment Tasks** page.
 
 Your new application appears under the App Deployment node. You can make additional changes to the application on this page.
 
 You must start an application before it can process client requests.
 
-#### WebLogic Maven Plugin
-WebLogic Server provides support for Maven through the provisioning of plug-ins that enable you to perform various operations on WebLogic Server from within a Maven environment.  For more information, see [WebLogic Maven Plugin](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/depgd/maven_deployer.html)
+#### WebLogic Maven plug-in
+WebLogic Server provides support for Maven through the provisioning of plug-ins that enable you to perform various operations on WebLogic Server from within a Maven environment.  For more information, see [WebLogic Maven Plugin](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/depgd/maven_deployer.html).
 
 ```bash
-./mvnw com.oracle.weblogic:weblogic-maven-plugin:deploy -Dsource=target/petclinic.war -Duser=<WebLogic Admin User> -Dpassword=<WebLogic Password> 
+./mvnw com.oracle.weblogic:weblogic-maven-plugin:deploy -Dsource=target/petclinic.war -Duser=<WebLogic Admin User> -Dpassword=<WebLogic Password>
 ```
 
-#### WebLogic Java Deployer. 
+#### weblogic.Deployer
 
-In order to deploy an application or module to a domain, the deployment file(s) must be accessible to the domain's Administration Server. If the files do not reside on the Administration Server machine or are not available to the Administration Server machine via a network mounted directory, use the -upload option to upload the files before deploying them.  For more information, see [WebLogic Java Deployer](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/depgd/deploy.html)
+In order to deploy an application or module to a domain, the deployment file(s) must be accessible to the domain's Administration Server. If the files do not reside on the Administration Server machine or are not available to the Administration Server machine via a network mounted directory, use the `-upload` option to upload the files before deploying them.  For more information, see [Deploying Applications and Modules with weblogic.Deployer](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/depgd/deploy.html).
 
-```bash 
+```bash
 java weblogic.Deployer -adminurl http://<AdminServer IP>:<Port, defaults to 7001> -username <WebLogic Admin User>
    -password password=<WebLogic Password> -deploy -upload target/petclinic.war
 ```
 
-#### WebLogic Admin Console
-Oracle WebLogic Server Administration Console is a Web browser-based, graphical user interface that you use to manage an Oracle WebLogic Server domain. It is accessible from any supported Web browser with network access to the Administration Server. 
+#### WebLogic Server Administration Console
+Oracle WebLogic Server Administration Console is a Web browser-based, graphical user interface that you use to manage an Oracle WebLogic Server domain. It is accessible from any supported Web browser with network access to the Administration Server.
 
-Go to the WebLogic Admin Server Console and Click on Deployments. For more information, see [Using Oracle WebLogic Server Administration Console](https://docs.oracle.com/en/middleware/fusion-middleware/12.2.1.4/asadm/getting-started-managing-oracle-fusion-middleware.html)
+In the left pane of the WebLogic Server Administration Console and select on **Deployments**. For more information, see [Deploy and configure resources](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/wlach/core/index.html) in the _Administration Console Online Help_.
 
 
-You can then access petclinic here: [http://AdminServerIP:7001/](http://localhost:8080/)
+You can then access the PetClinic app here: [http://AdminServerIP:7001/](http://localhost:8080/).
 
 
 
 
 ## Database configuration
 
-In its default configuration, Petclinic uses an in-memory database (H2) which gets populated at startup with data.
+In its default configuration, PetClinic uses an in-memory database (H2) which gets populated at startup with data.
 
 
-## Working with Petclinic in your IDE
+## Working with PetClinic in your IDE
 
 ### Prerequisites
 The following items should be installed in your system:
-* Java 8 or newer (full JDK not a JRE)
+* Java 8 or later (full JDK not a JRE)
 * Maven 3.3+ (http://maven.apache.org/install.html)
 * git command line tool (https://help.github.com/articles/set-up-git)
 * WebLogic 12.2.1.4+
-* Your prefered IDE 
-  * Eclipse with the m2e plugin. Note: when m2e is available, there is an m2 icon in Help -> About dialog. If m2e is not there, just follow the install process here: http://www.eclipse.org/m2e/
+* Your preferred IDE
+  * Eclipse with the m2e plugin. **Note**: When m2e is available, there is an m2 icon in the Help -> About dialog. If m2e is not there, just follow the install process here: http://www.eclipse.org/m2e/
   * [Spring Tools Suite](https://spring.io/tools) (STS)
   * IntelliJ IDEA
 
 
-### Steps:
+### Steps
 
-1) On the command line
+1) On the command line.
 ```bash
 git clone https://github.com/oracle-samples/weblogic-examples.git
 cd weblogic-examples/12_2_1_4/spring-petclinic
 
 ```
 
-2) Inside Eclipse or STS
+2) Inside Eclipse or STS.
 ```
 File -> Import -> Maven -> Existing Maven project
 ```
 Then either build on the command line `./mvnw generate-resources` or using the Eclipse launcher (right click on project and `Run As -> Maven install`) to generate the CSS.
-Configure an Oracle WebLogic Domain then deploy the `petclinic.war` file.
+Configure an Oracle WebLogic domain, then deploy the `petclinic.war` file.
 
-3) Inside IntelliJ IDEA
+3) Inside IntelliJ IDEA.
 
-In the main menu, select `File > Open` and select the Petclinic [pom.xml](pom.xml). Click on the `Open` button.
+In the main menu, select `File > Open` and select the PetClinic [pom.xml](pom.xml). Click the `Open` button.
 
-CSS files are generated from the Maven build. You can either build them on the command line `./mvnw generate-resources` 
-or right click on the `wls-spring-petclinic` project then `Maven -> Generates sources and Update Folders`.
+CSS files are generated from the Maven build. You can either build them on the command line `./mvnw generate-resources`
+or right click on the `wls-spring-petclinic` project, then `Maven -> Generates sources and Update Folders`.
 
-Go to the `Run -> Edit Configuration` then configure a WebLogic Server. Deploy the `petclinic.war` file.
-Run the application by clicking on the `Run` icon.
-
-
-4) Navigate to Petclinic
-
-Visit [http://localhost:8080](http://localhost:8080) in your browser.
+Go to the `Run -> Edit Configuration` then configure a WebLogic Server instance. Deploy the `petclinic.war` file.
+Run the application by clicking the `Run` icon.
 
 
-## Working with Petclinic in IntelliJ IDEA
+4) Navigate to PetClinic.
 
-### prerequisites
+Open [http://localhost:8080](http://localhost:8080) in your browser.
+
+
+## Working with PetClinic in IntelliJ IDEA
+
+### Prerequisites
 The following items should be installed in your system:
 
 
@@ -155,7 +158,7 @@ The following items should be installed in your system:
 
 | Java Config |   |
 |-------------|---|
-| Java config branch | Petclinic uses XML configuration by default. In case you'd like to use Java Config instead, there is a Java Config branch available [here](https://github.com/spring-petclinic/spring-framework-petclinic/tree/javaconfig) |
+| Java config branch | PetClinic uses XML configuration by default. If you'd like to use Java Config instead, there is a Java Config branch available [here](https://github.com/spring-petclinic/spring-framework-petclinic/tree/javaconfig). |
 
 | Inside the 'Web' layer | Files |
 |------------------------|-------|
@@ -189,14 +192,14 @@ Our issue tracker is available here: https://github.com/oracle-samples/weblogic-
 
 # Attribution
 
-This repo is a fork of the [spring-projects/spring-framework-petclinic](https://github.com/spring-projects/spring-framework-petclinic) example, licensed under the Apache License 2.0. [License](LICENSE.txt) for spring-framework-petclinic is included in this repository. 
+This repo is a fork of the [spring-projects/spring-framework-petclinic](https://github.com/spring-projects/spring-framework-petclinic) example, licensed under the Apache License 2.0. [License](LICENSE.txt) for spring-framework-petclinic is included in this repository.
 
 # Code Changes
 
 The following code changes where introduced from `spring-framework-petclinic`:
   * Removed trimDirectiveWhitespaces="true" from tag files under [tag](src/main/webapp/WEB-INF/tags/)
   * [WebLogic descriptor](src/main/webapp/WEB-INF/weblogic.xml) added.  
-  * Removed jetty deployment descriptor 
+  * Removed jetty deployment descriptor
   * [JSTL Tag descriptor](src/main/webapp/WEB-INF/petclinic.tld) added.
   * Modified mvc-core-config.xml to include the handler servlet name
     <mvc:default-servlet-handler default-servlet-name="default">.
@@ -209,4 +212,3 @@ The following code changes where introduced from `spring-framework-petclinic`:
 Copyright (c) 2025 Oracle and/or its affiliates.
 
 Released under the Universal Permissive License v1.0 as shown at https://oss.oracle.com/licenses/upl/.
-

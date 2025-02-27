@@ -2,9 +2,9 @@
 
 Oracle provides OpenRewrite recipes to help you upgrade your applications to new WebLogic and Java versions, and to Jakarta EE. This tutorial demonstrates how to use the recipes to upgrade a sample application to run on WebLogic Server 15.1.1 with JDK 21 and Jakarta EE 9.1.
 
-## Spring Framework PetClinic Example
+## Spring Framework PetClinic example
 
-We'll step through this tutorial using the Spring Framework PetClinic example that is available on this GitHub repo: [`spring-framework-petclinic-12.2.1.4` sample](../../../samples/spring-framework-petclinic-12.2.1.4/). This is a fork of the approved [fork](https://github.com/spring-petclinic/spring-framework-petclinic/tree/5.3.x) from Spring Team, a Petclinic version with a plain old Spring Framework 5.3.x configuration and with a 3-layer architecture (i.e. presentation --> service --> repository) and was modified to run on WebLogic 12.2.1.4. We will run the `rewrite-weblogic` recipes locally, so we'll need a copy of the code locally, too.
+We'll step through this tutorial using the Spring Framework Pet Clinic example that is available in this GitHub repo: [`spring-framework-petclinic-12.2.1.4` sample](../../../samples/spring-framework-petclinic-12.2.1.4/). This is a fork of the approved [fork](https://github.com/spring-petclinic/spring-framework-petclinic/tree/5.3.x) from the Spring Team, a PetClinic version with a plain old Spring Framework 5.3.x configuration and with a 3-layer architecture (i.e. presentation --> service --> repository) and was modified to run on WebLogic 12.2.1.4. We will run the `rewrite-weblogic` recipes locally, so we'll need a copy of the code locally, too.
 
 ![Spring Framework PetClinic](https://cloud.githubusercontent.com/assets/838318/19727082/2aee6d6c-9b8e-11e6-81fe-e889a5ddfded.png)
 
@@ -67,7 +67,7 @@ This command applies the following recipes:
 
 OpenRewrite updates the `spring-framework-petclinic-12.2.1.4` code in the following ways:
 
-- `pom.xml` – updates versions, dependencies, and namespaces
+- `pom.xml` – Updates versions, dependencies, and namespaces.
 - Source files –
   - Updates Java dependencies and related statements.
   - Updates WebLogic API dependencies and related statements.
@@ -86,6 +86,7 @@ For example, the following image shows file changes for the ```pom.xml``` file i
 ![pom file with changes](../../images/pom-sbs.png)
 
 The following image shows a source file with code changes applied:
+
 ![source file with changes](../../images/coffee-java-sbs.png)
 
 ### Step 4: Deploy the application

@@ -39,7 +39,7 @@ For this example, we will upgrade the WebLogic Cafe application to run on WebLog
     You must open to the folder where the POM file is located:
     ``` weblogic-on-azure/javaee/weblogic-cafe ```
 
-    Preferably, you should open a terminal within your IDE.
+    Preferably, you should open a terminal within your IDE so that you can easily review changes to the source files after running the recipes.
 
     ![VSCode - open an integrated terminal](../../images/integ-terminal-vscode.png)
 
@@ -50,8 +50,9 @@ For this example, we will upgrade the WebLogic Cafe application to run on WebLog
       -Drewrite.recipeArtifactCoordinates=com.oracle.weblogic.rewrite:rewrite-weblogic:LATEST \
       -Drewrite.activeRecipes=com.oracle.weblogic.rewrite.UpgradeTo1412,org.openrewrite.java.migrate.UpgradeToJava21
     ```
+**Note** that this command updates the application to use Java 21. If you want to upgrade to Java 17 instead, replace `UpgradeToJava21` with `UpgradeToJava17`.
 
-This command applies the following recipes:
+The command applies the following recipes:
 
 - `com.oracle.weblogic.rewrite.UpgradeTo1412`
 - `org.openrewrite.java.migrate.UpgradeToJava21`

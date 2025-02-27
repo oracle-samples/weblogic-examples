@@ -2,7 +2,7 @@
 
 Oracle provides OpenRewrite recipes to help you upgrade your applications to new WebLogic and Java versions, and to Jakarta EE. This tutorial demonstrates how to use the recipes to upgrade a sample application to run on WebLogic Server 15.1.1 with JDK 21 and Jakarta EE 9.1.
 
-## WebLogic Cafe Example
+## WebLogic Cafe example
 
 We'll step through this tutorial using the WebLogic Cafe example that is available on GitHub: [`https://github.com/microsoft/weblogic-on-azure`](https://github.com/microsoft/weblogic-on-azure). This is a simplified Java EE application that is used in many demos. We will run the `rewrite-weblogic` recipes locally, so we'll need a copy of the code locally, too.
 
@@ -61,7 +61,7 @@ The command applies the following recipes:
 
 OpenRewrite updates the `weblogic-cafe` code in the following ways:
 
-- `pom.xml` – updates versions, dependencies, and namespaces
+- `pom.xml` – Updates versions, dependencies, and namespaces.
 - Source files –
   - Updates Java dependencies and related statements.
   - Updates the Jakarta version from Jakarta EE 8 to Jakarta EE 9.1, including changing the ```javax``` namespace to ```jakarta```.
@@ -82,12 +82,12 @@ The following image shows a source file with code changes applied:
 
 ### Step 4: Build and deploy the application
 
-To build the updated application, execute this command:
+To build the updated application, run this command:
 ```shell
 mvn clean package -Dmaven.test.skip
 ```
 
-Optionally, if you have a WebLogic 15.1.1 domain available, deploy the WebLogic Cafe example application using your standard deployment tools, such as the WebLogic Remote Console.
+Optionally, if you have a WebLogic 15.1.1 domain available, deploy the WebLogic Cafe example application using your standard deployment tools, such as the [WebLogic Remote Console](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-remote-console/administer/set-console.html).
 
 As supplied, the application needs a database and a JDBC datasource configuration to deploy successfully. Instructions for setting up a PostgreSQL database and a JDBC datasource are available in the original [example instructions](https://github.com/microsoft/weblogic-on-azure/blob/main/javaee/README.md).
 
@@ -95,16 +95,16 @@ As supplied, the application needs a database and a JDBC datasource configuratio
 
 You can optionally deploy the application so that it will use a local Derby database. This is a great option for demos and other dev-centric single-server use cases.
 
-The quick deployment option requires two changes:
-1. Before starting the WebLogic Server instance, you must set the DERBY_FLAG value to "true" in the shell window where you want to start WebLogic Server:
+The quick-deployment option requires two changes:
+1. Before starting the WebLogic Server instance, in the shell window where you want to start WebLogic Server, you must set the `DERBY_FLAG` value to `"true"`:
 
    ```
    DERBY_FLAG="true"
    export DERBY_FLAG
    ```
-Then run ```startWebLogic.sh``` to start the admin server. The startup process will start Derby so that it is ready to interact with the application.
+   Then run ```startWebLogic.sh``` to start the admin server. The startup process will start Derby so that it is ready to interact with the application.
 
-2. Add a JDBC datasource to your WebLogic Domain to connect to the local datasource with the following properties:
+2. Add a JDBC data source to your WebLogic domain, to connect to the local data source with the following properties:
    ```
    <name>webcafe</name>
    <datasource-type>GENERIC</datasource-type>
@@ -137,14 +137,12 @@ Then run ```startWebLogic.sh``` to start the admin server. The startup process w
     </jdbc-data-source-params>
    ```
 
-   
 
-After making these changes to your environment,  build the app: 
+
+After making these changes to your environment,  build the application:
 
 ```shell
 mvn clean package -Dmaven.test.skip
 ```
 
-You can then deploy the ```weblogic-cafe.war``` file to the WebLogic Server 15.1.1 instance that you started in step 1 of the quick deployment option.
-
-
+Then, you can deploy the ```weblogic-cafe.war``` file to the WebLogic Server 15.1.1 instance that you started in step 1 of the quick-deployment option.

@@ -2,7 +2,7 @@
 
 Welcome to the WebLogic Examples repository! Here, you'll find tutorials and examples that will help you get started with WebLogic quickly. Whether you're a seasoned developer or just beginning your journey, these examples will showcase the powerful features of WebLogic and help you hit the ground running. Dive in and explore the possibilities!
 
-## Getting Started
+## Getting started
 
 > [!TIP]
 > If you are looking for an example that runs on a specific version of WebLogic, please check out the corresponding branch. For example, if you are looking for an example that runs on WebLogic 14.1.2, please check out the `14.1.2` branch.
@@ -18,10 +18,10 @@ cd weblogic-examples
 
 | Example | Source | Description | Runs on 15.1.1 | 14.1.2 | 12.2.1.4 | Builder | Highlights | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [Basic Faces](./samples/basicfaces/README.md) | [`basicfaces` repo](./samples/basicfaces/) | A simple JSF application that demonstrates how to deploy a web application to WebLogic. | ✅ 🟡 | ✅ | ✅ | Gradle | JSF | 🟡 Not optimized for Jakarta EE 9.1 descriptors. |
-| [Simple Servlet](./samples/simpleservlet/README.md) | [`simpleservlet` repo](./samples/simpleservlet/) | A simple servlet application that demonstrates how to deploy a web application to WebLogic. | ✅ | ❌ | ❌ | Maven | servlet <br/> Jakarta EE 9.1 | |
-| [Spring Framework Pet Clinic (WLS 12.2.1.4)](./samples/spring-framework-petclinic-12.2.1.4/README.md) | [`spring-petclinic` repo](./samples/spring-framework-petclinic-12.2.1.4/) | A well-known Spring Framework demo application modified to run on WebLogic 12.2.1.4. | 🟡 | ✅ | ✅ | Maven | Spring Framework 5.3.x | 🟡 To deploy to WebLogic 15.1.1, follow the [tutorial](./tutorials/migrate/spring-framework-petclinic-15.1.1/README.md) to migrate the application to use Jakarta EE 9.1, Java 21 and Spring Framework 6.2.x on WebLogic. |
-| [WebLogic Cafe](https://github.com/microsoft/weblogic-on-azure/blob/main/README.md) | [Microsoft `weblogic-on-azure` repo](https://github.com/microsoft/weblogic-on-azure) | A sample application that showcases the WebLogic on Azure solution. | 🟡 | ✅ | ✅ | Maven | OpenRewrite | 🟡 To deploy to WebLogic 15.1.1, follow the [tutorial](./tutorials/migrate/weblogic-cafe-15.1.1/README.md) to migrate the application to use Jakarta EE 9.1 and Java 21 on WebLogic. |
+| [Basic Faces](./samples/basicfaces/README.md) | `basicfaces` [repo](./samples/basicfaces/) | A simple JSF application that demonstrates how to deploy a web application to WebLogic. | ✅ 🟡 | ✅ | ✅ | Gradle | JSF | 🟡 Not optimized for Jakarta EE 9.1 descriptors. |
+| [Simple Servlet](./samples/simpleservlet/README.md) | `simpleservlet` [repo](./samples/simpleservlet/) | A simple servlet application that demonstrates how to deploy a web application to WebLogic. | ✅ | ❌ | ❌ | Maven | servlet <br/> Jakarta EE 9.1 | |
+| [WebLogic Cafe](https://github.com/microsoft/weblogic-on-azure/blob/main/README.md) | Microsoft `weblogic-on-azure` [repo](https://github.com/microsoft/weblogic-on-azure) | A sample application that showcases the WebLogic on Azure solution. | 🟡 | ✅ | ✅ | Maven | OpenRewrite | 🟡 To deploy to WebLogic 15.1.1 (BETA), follow the [tutorial](./tutorials/migrate/weblogic-cafe-15.1.1/README.md) to upgrade the application to use Jakarta EE 9.1 and Java 21 on WebLogic. |
+| [Spring Framework Pet Clinic (WLS 12.2.1.4)](./samples/spring-framework-petclinic-12.2.1.4/README.md) | `spring-petclinic` [repo](./samples/spring-framework-petclinic-12.2.1.4/) | A well-known Spring Framework demo application modified to run on WebLogic 12.2.1.4. | 🟡 | ✅ | ✅ | Maven | Spring Framework 5.3.x | 🟡 To deploy to WebLogic 15.1.1 (BETA), follow the [tutorial](./tutorials/migrate/spring-framework-petclinic-15.1.1/README.md) to upgrade the application to use Jakarta EE 9.1, Java 21, and Spring Framework 6.2.x on WebLogic. |
 
 Also, check out the tutorials and follow the instructions to run them.
 
@@ -29,11 +29,11 @@ Also, check out the tutorials and follow the instructions to run them.
 
 | Tutorial | Description |
 | --- | --- |
-| [Migrate Spring Framework Pet Clinic to WLS 15.1.1(BETA)](./tutorials/migrate/spring-framework-petclinic-15.1.1/README.md) | This tutorial shows you how to migrate the Spring Framework Pet Clinic sample application to WebLogic 15.1.1 (BETA), Java 21, Jakarta EE 9.1 and Spring Framework 6.2.x. |
-| [Migrate WebLogic Cafe to WLS 14.1.2](./tutorials/migrate/weblogic-cafe-14.1.2/README.md) | This tutorial shows you how to migrate the WebLogic Cafe sample application to WebLogic 14.1.2 and Java 21. |
-| [Migrate WebLogic Cafe to WLS 15.1.1(BETA)](./tutorials/migrate/weblogic-cafe-15.1.1/README.md) | This tutorial shows you how to migrate the WebLogic Cafe sample application to WebLogic 15.1.1 (BETA), Java 21 and Jakarta EE 9.1. |
+| [Migrate WebLogic Cafe to WLS 14.1.2](./tutorials/migrate/weblogic-cafe-14.1.2/README.md) | This tutorial shows you how to upgrade the WebLogic Cafe sample application to WebLogic 14.1.2 and Java 21. |
+| [Migrate WebLogic Cafe to WLS 15.1.1(BETA)](./tutorials/migrate/weblogic-cafe-15.1.1/README.md) | This tutorial shows you how to upgrade the WebLogic Cafe sample application to WebLogic 15.1.1 (BETA), Java 21 and Jakarta EE 9.1. |
+| [Migrate Spring Framework Pet Clinic to WLS 15.1.1(BETA)](./tutorials/migrate/spring-framework-petclinic-15.1.1/README.md) | This tutorial shows you how to upgrade the Spring Framework Pet Clinic sample application to WebLogic 15.1.1 (BETA), Java 21, Jakarta EE 9.1 and Spring Framework 6.2.x. |
 
-## Get Help
+## Get help
 
 We have a public Slack channel where you can get in touch with us, to ask questions about WebLogic and the examples, or give us feedback or suggestions about features and improvements you would like to see. We would love to hear from you.
 

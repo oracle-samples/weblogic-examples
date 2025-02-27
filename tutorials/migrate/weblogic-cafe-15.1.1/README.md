@@ -12,13 +12,13 @@ We'll step through this tutorial using the WebLogic Cafe example that is availab
 1. Make sure that you have Maven 3.x installed.
 1. Clone the `weblogic-on-azure` repo:
 
-```shell
-git clone https://github.com/microsoft/weblogic-on-azure.git
-```
+    ```shell
+    git clone https://github.com/microsoft/weblogic-on-azure.git
+    ```
 
-```shell
-cd weblogic-on-azure/javaee/weblogic-cafe
-```
+    ```shell
+    cd weblogic-on-azure/javaee/weblogic-cafe
+    ```
 
 ### Step 2: Sync Maven dependencies
 
@@ -41,16 +41,16 @@ For this example, we will upgrade the WebLogic Cafe application to run on WebLog
 
     Preferably, you should open a terminal within your IDE so that you can review the changes to the source files.
 
-    ![VSCode - open an integrated terminal](./images/integ-terminal-vscode.png)
+    ![VSCode - open an integrated terminal](../../images/integ-terminal-vscode.png)
 
 1. Run the following command to run OpenRewrite:
 
-```shell
-mvn -U org.openrewrite.maven:rewrite-maven-plugin:run \
-  -Drewrite.recipeArtifactCoordinates=com.oracle.weblogic.rewrite:rewrite-weblogic:LATEST \
-  -Drewrite.activeRecipes=com.oracle.weblogic.rewrite.UpgradeTo1511,org.openrewrite.java.migrate.UpgradeToJava21,com.oracle.weblogic.rewrite.JakartaEE9_1 \
-  -Drewrite.exportDatatables=true
-```
+    ```shell
+    mvn -U org.openrewrite.maven:rewrite-maven-plugin:run \
+      -Drewrite.recipeArtifactCoordinates=com.oracle.weblogic.rewrite:rewrite-weblogic:LATEST \
+      -Drewrite.activeRecipes=com.oracle.weblogic.rewrite.UpgradeTo1511,org.openrewrite.java.migrate.UpgradeToJava21,com.oracle.weblogic.rewrite.JakartaEE9_1 \
+      -Drewrite.exportDatatables=true
+    ```
 
 This command applies the following recipes:
 
@@ -73,11 +73,11 @@ The easiest way to see the results of the upgrade is to compare the updated file
 
 For example, the following image shows file changes for the ```pom.xml``` file in VS Code:
 
-![pom file with changes](./images/pom-sbs.png)
+![pom file with changes](../../images/pom-sbs.png)
 
 The following image shows a source file with code changes applied:
 
-![source file with changes](./images/coffee-java-sbs.png)
+![source file with changes](../../images/coffee-java-sbs.png)
 
 ### Step 4: Build and deploy the application
 

@@ -73,6 +73,7 @@ For example, the following image shows file changes for the ```pom.xml``` file i
 ![pom file with changes](../../images/pom-sbs.png)
 
 The following image shows a source file with code changes applied:
+
 ![source file with changes](../../images/coffee-java-sbs.png)
 
 ### Step 4: Deploy the application

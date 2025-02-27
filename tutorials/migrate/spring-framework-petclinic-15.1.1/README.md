@@ -43,7 +43,7 @@ For this example, we will upgrade the Spring Framework PetClinic application to 
     You must open to the folder where the POM file is located:
     ``` weblogic-examples/samples/spring-framework-petclinic-12.2.1.4 ```
 
-    Preferably, you should open a terminal within your IDE.
+    Preferably, you should open a terminal within your IDE so that you can easily review changes to the source files after running the recipes.
 
     ![VSCode - open an integrated terminal](../../images/integ-terminal-vscode.png)
 
@@ -55,6 +55,7 @@ For this example, we will upgrade the Spring Framework PetClinic application to 
       -Drewrite.activeRecipes=com.oracle.weblogic.rewrite.UpgradeTo1511,org.openrewrite.java.migrate.UpgradeToJava21,com.oracle.weblogic.rewrite.JakartaEE9_1,com.oracle.weblogic.rewrite.spring.framework.UpgradeToSpringFramework_6_2,com.oracle.weblogic.rewrite.hibernate.MigrateHibernate4JakartaEE9 \
       -Drewrite.exportDatatables=true
     ```
+**Note** that this command updates the application to use Java 21. If you want to upgrade to Java 17 instead, replace `UpgradeToJava21` with `UpgradeToJava17`.
 
 This command applies the following recipes:
 
@@ -66,11 +67,15 @@ This command applies the following recipes:
 
 OpenRewrite updates the `spring-framework-petclinic-12.2.1.4` code in the following ways:
 
-- `pom.xml` – updates versions and namespaces
+- `pom.xml` – updates versions, dependencies, and namespaces
 - Source files –
   - Updates Java dependencies and related statements.
   - Updates WebLogic API dependencies and related statements.
   - For removed APIs with no replacement, OpenRewrite inserts a comment in the code stating that the API usage needs to be resolved or removed.
+  - Updates Jakarta API usage to Jakarta EE 9.1 version.
+  - Updates Spring Framework APIs to version 6.2.
+  - Sets proper Hibernate API versions to work with Java 21 and Jakarta EE 9.1.
+
 
 ### Step 3: Review the results
 

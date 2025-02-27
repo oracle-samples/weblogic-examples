@@ -50,19 +50,19 @@ This procedure applies to all of the deployment units listed in Supported Deploy
 
 1. In the Edit Tree, go to Deployments, then App Deployments.
 
-2. Select New.
+1. Select New.
 
-3. Enter a name for the application.
+1. Enter a name for the application.
 
-4. Select the servers and clusters to which you want to deploy the application.
+1. Select the servers and clusters to which you want to deploy the application.
 
-5. Make the archive file or exploded directory known to the Administration Server.
+1. Make the archive file or exploded directory known to the Administration Server.
       -  If the application is on your file system and you need to upload it to the Administration Server, enable the Upload option. Then, beside Source, click Choose File to browse to the application’s location on your system.
       -  If the application is already in the file system of the Administration Server, disable the Upload option. Then, in the Source Path field, enter the file path to the application.
 
-6. Add a deployment plan, choose another staging mode, or set application behavior at deployment.
+1. Add a deployment plan, choose another staging mode, or set application behavior at deployment.
 
-7. Click Create.
+1. Click Create.
 
 You can view the status of running deployment tasks on the **Monitoring Tree: Deployments: Deployment Tasks** page.
 
@@ -119,34 +119,34 @@ The following items should be installed in your system:
 ### Steps
 
 1) On the command line.
-```bash
-git clone https://github.com/oracle-samples/weblogic-examples.git
-cd weblogic-examples/12_2_1_4/spring-petclinic
+   
+    ```bash
+    git clone https://github.com/oracle-samples/weblogic-examples.git
+    cd weblogic-examples/12_2_1_4/spring-petclinic
+    
+    ```
 
-```
+1) Inside Eclipse or STS.
+   
+    ```
+    File -> Import -> Maven -> Existing Maven project
+    ```
+    Then either build on the command line `./mvnw generate-resources` or using the Eclipse launcher (right click on project and `Run As -> Maven install`) to generate the CSS.
+    Configure an Oracle WebLogic domain, then deploy the `petclinic.war` file.
 
-2) Inside Eclipse or STS.
-```
-File -> Import -> Maven -> Existing Maven project
-```
-Then either build on the command line `./mvnw generate-resources` or using the Eclipse launcher (right click on project and `Run As -> Maven install`) to generate the CSS.
-Configure an Oracle WebLogic domain, then deploy the `petclinic.war` file.
+1) Inside IntelliJ IDEA.
 
-3) Inside IntelliJ IDEA.
+    In the main menu, select `File > Open` and select the PetClinic [pom.xml](pom.xml). Click the `Open` button.
+    
+    CSS files are generated from the Maven build. You can either build them on the command line `./mvnw generate-resources`
+    or right click on the `wls-spring-petclinic` project, then `Maven -> Generates sources and Update Folders`.
+    
+    Go to the `Run -> Edit Configuration` then configure a WebLogic Server instance. Deploy the `petclinic.war` file.
+    Run the application by clicking the `Run` icon.
 
-In the main menu, select `File > Open` and select the PetClinic [pom.xml](pom.xml). Click the `Open` button.
+1) Navigate to PetClinic.
 
-CSS files are generated from the Maven build. You can either build them on the command line `./mvnw generate-resources`
-or right click on the `wls-spring-petclinic` project, then `Maven -> Generates sources and Update Folders`.
-
-Go to the `Run -> Edit Configuration` then configure a WebLogic Server instance. Deploy the `petclinic.war` file.
-Run the application by clicking the `Run` icon.
-
-
-4) Navigate to PetClinic.
-
-Open [http://localhost:8080](http://localhost:8080) in your browser.
-
+    Open [http://localhost:8080](http://localhost:8080) in your browser.
 
 ## Working with PetClinic in IntelliJ IDEA
 

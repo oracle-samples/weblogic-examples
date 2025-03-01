@@ -106,10 +106,10 @@ In its default configuration, PetClinic uses an in-memory database (H2) which ge
 
 ### Prerequisites
 The following items should be installed in your system:
-* Java 8 or later (full JDK not a JRE)
+* Java 8 or JDK 11 (full JDK not a JRE)
 * Maven 3.3+ (http://maven.apache.org/install.html)
 * git command line tool (https://help.github.com/articles/set-up-git)
-* WebLogic 12.2.1.4+
+* WebLogic 12.2.1.4
 * Your preferred IDE
   * Eclipse with the m2e plugin. **Note**: When m2e is available, there is an m2 icon in the Help -> About dialog. If m2e is not there, just follow the install process here: http://www.eclipse.org/m2e/
   * [Spring Tools Suite](https://spring.io/tools) (STS)
@@ -212,3 +212,19 @@ The following code changes where introduced from `spring-framework-petclinic`:
 Copyright (c) 2025 Oracle and/or its affiliates.
 
 Released under the Universal Permissive License v1.0 as shown at https://oss.oracle.com/licenses/upl/.
+
+
+# Release Notes
+##  Known Issues
+*  Building Petclinic war file using JDK 17 or JDK 21 leads to 
+   ```shell
+        ...Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 67
+        at org.jacoco.agent.rt.internal_f3994fa.asm.ClassReader.<init>(ClassReader.java:196)
+        at org.jacoco.agent.rt.internal_f3994fa.asm.ClassReader.<init>(ClassReader.java:177)
+        at org.jacoco.agent.rt.internal_f3994fa.asm.ClassReader.<init>(ClassReader.java:163)
+        at
+    ```
+* Petclinic menu bar displays label "ERROR". 
+  This is an expected Petclinic application feature to test how Spring Framework handle errors. 
+  Also, the center pane will display the following message :
+  ```"Expected: controller used to showcase what happens when an exxception is thrown"```

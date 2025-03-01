@@ -46,7 +46,7 @@ For general information about the application deployment process, see [Understan
 
 Installing an application makes its physical file or directory known to WebLogic Server.
 
-This procedure applies to all of the deployment units listed in [Supported Deployment Units](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/14.1.2/depgd/understanding.html#GUID-DC6C0B59-7560-4A6F-964B-201480072A3D).
+This procedure applies to all of the deployment units listed in [Supported Deployment Units](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/depgd/understanding.html#GUID-DC6C0B59-7560-4A6F-964B-201480072A3D).
 
 1. In the Edit Tree, go to Deployments, then App Deployments.
 

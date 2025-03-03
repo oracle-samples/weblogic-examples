@@ -42,7 +42,7 @@ Use any of the following deployment tools for deploying the PetClinic applicatio
 
 You can use the [WebLogic Remote Console](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-remote-console/administer/set-console.html) to manage the deployment process of applications to WebLogic Server. For more information, see [Deploying Applications](https://docs-uat.us.oracle.com/en/middleware/fusion-middleware/weblogic-remote-console/administer/deploying-applications.html) in the _Oracle WebLogic Remote Console Online Help_.
 
-For general information about the application deployment process, see [Understanding WebLogic Server Deployment](https://docs.oracle.com/pls/topic/lookup?ctx=en/middleware/fusion-middleware/weblogic-remote-console/administer&id=DEPGD-GUID-F6E8BF0B-FBCF-44D2-A33F-13C4EF2E0031) in _Deploying Applications to Oracle WebLogic Server_.
+For general information about the application deployment process, see [Understanding WebLogic Server Deployment](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/depgd/understanding.html) in _Deploying Applications to Oracle WebLogic Server_.
 
 Installing an application makes its physical file or directory known to WebLogic Server.
 
@@ -109,14 +109,14 @@ The following items should be installed in your system:
 * git command line tool (https://help.github.com/articles/set-up-git)
 * WebLogic 12.2.1.4
 * Your preferred IDE
-  * Eclipse with the m2e plugin. **Note**: When m2e is available, there is an m2 icon in the Help -> About dialog. If m2e is not there, just follow the install process here: http://www.eclipse.org/m2e/
+  * Eclipse with the m2e plugin. **Note**: When m2e is available, there is an m2 icon in the Help -> About dialog. If m2e is not there, just follow the installation process here: http://www.eclipse.org/m2e/
   * [Spring Tools Suite](https://spring.io/tools) (STS)
   * IntelliJ IDEA
 
 
 ### Steps
 
-1) On the command line.
+1) On the command line:
 
     ```bash
     git clone https://github.com/oracle-samples/weblogic-examples.git
@@ -124,7 +124,7 @@ The following items should be installed in your system:
 
     ```
 
-1) Inside Eclipse or STS.
+1) Inside Eclipse or STS:
 
     ```
     File -> Import -> Maven -> Existing Maven project
@@ -132,7 +132,7 @@ The following items should be installed in your system:
     Then, either build on the command line `./mvnw generate-resources` or use the Eclipse launcher (right-click on the project and then, `Run As -> Maven install`) to generate the CSS.
     Configure an Oracle WebLogic domain, then deploy the `petclinic.war` file.
 
-1) Inside IntelliJ IDEA.
+1) Inside IntelliJ IDEA:
 
     In the main menu, select `File > Open` and select the PetClinic [`pom.xml`](pom.xml) file. Click the `Open` button.
 
@@ -142,14 +142,14 @@ The following items should be installed in your system:
     Go to the `Run -> Edit Configuration` then configure a WebLogic Server instance. Deploy the `petclinic.war` file.
     Run the application by clicking the `Run` icon.
 
-1) Navigate to PetClinic.
+1) Navigate to PetClinic:
 
     Open [`http://localhost:8080`](http://localhost:8080) in your browser.
 
 ## Working with PetClinic in IntelliJ IDEA
 
 ### Prerequisites
-The following items should be installed in your system:
+The following items should be installed in your system.
 
 
 ## Looking for something in particular?
@@ -214,7 +214,7 @@ Released under the Universal Permissive License v1.0 as shown at https://oss.ora
 
 # Release Notes
 ##  Known Issues
-*  Building Petclinic war file using JDK 17 or JDK 21 leads to 
+*  Building PetClinic WAR file using JDK 17 or JDK 21 leads to:
    ```shell
         ...Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 67
         at org.jacoco.agent.rt.internal_f3994fa.asm.ClassReader.<init>(ClassReader.java:196)
@@ -222,7 +222,7 @@ Released under the Universal Permissive License v1.0 as shown at https://oss.ora
         at org.jacoco.agent.rt.internal_f3994fa.asm.ClassReader.<init>(ClassReader.java:163)
         at
     ```
-* Petclinic menu bar displays label "ERROR". 
-  This is an expected Petclinic application feature to test how Spring Framework handle errors. 
+* PetClinic menu bar displays label "ERROR".
+  This is an expected Petclinic application feature to test how Spring Framework handle errors.
   Also, the center pane will display the following message :
-  ```"Expected: controller used to showcase what happens when an exxception is thrown"```
+  ```"Expected: controller used to showcase what happens when an exxception is thrown"```.

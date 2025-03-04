@@ -42,7 +42,8 @@ Pull the WebLogic Server 14.1.2 image from the Oracle Container Registry.
   docker pull docker pull container-registry.oracle.com/middleware/weblogic:14.1.2.0-generic-jdk21-ol9
   ```
 
-  > **Note**: This image is the base image running with JDK 21 on Oracle Linux 9. You can use any variant of the image that suits your environment or tests.
+> [!NOTE]
+> This image is the base image running with JDK 21 on Oracle Linux 9. You can use any variant of the image that suits your environment or tests.
 
 </details>
 
@@ -64,7 +65,8 @@ Pull the WebLogic Server 14.1.2 image from the Oracle Container Registry.
   podman pull docker pull container-registry.oracle.com/middleware/weblogic:14.1.2.0-generic-jdk21-ol9
   ```
 
-  > **Note**: This image is the base image running with JDK 21 on Oracle Linux 9. You can use any variant of the image that suits your environment or tests.
+> [!NOTE]
+> This image is the base image running with JDK 21 on Oracle Linux 9. You can use any variant of the image that suits your environment or tests.
 
 </details>
 
@@ -84,7 +86,8 @@ EOF
 docker run --rm -it -p 9002:9002 -p 7001:7001 --name wlsadmin --hostname wlsadmin -v ./domain.properties:/u01/oracle/properties/domain.properties container-registry.oracle.com/middleware/weblogic:14.1.2.0-generic-jdk21-ol9
 ```
 
-> **Note**: This command runs the WebLogic Server 14.1.2 container with the admin server running on port `7001` and the management console running on port `9002`. The domain properties file is mounted to the container to set the user name and password for the WebLogic Server Administration Console.
+> [!TIP]
+> This command runs the WebLogic Server 14.1.2 container with the admin server running on port `7001` and the management console running on port `9002`. The domain properties file is mounted to the container to set the user name and password for the WebLogic Server Administration Console.
 > Change the user name and password in the `domain.properties` file to suit your environment; do not use the default values.
 
 </details>
@@ -101,7 +104,8 @@ EOF
 podman run --rm -it -p 9002:9002 -p 7001:7001 --name wlsadmin --hostname wlsadmin -v ./domain.properties:/u01/oracle/properties/domain.properties container-registry.oracle.com/middleware/weblogic:14.1.2.0-generic-jdk21-ol9
 ```
 
-> **Note**: This command runs the WebLogic Server 14.1.2 container with the admin server running on port `7001` and the management console running on port `9002`. The domain properties file is mounted to the container to set the user name and password for the WebLogic Server Administration Console.
+> [!TIP]
+> This command runs the WebLogic Server 14.1.2 container with the admin server running on port `7001` and the management console running on port `9002`. The domain properties file is mounted to the container to set the user name and password for the WebLogic Server Administration Console.
 > Change the user name and password in the `domain.properties` file to suit your environment; do not use the default values.
 
 </details>

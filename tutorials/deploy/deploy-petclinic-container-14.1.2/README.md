@@ -157,4 +157,4 @@ Access the Spring Framework PetClinic example application using the WebLogic Ser
     http://localhost:7001/petclinic
     ```
 
-[^ocrlogin]: You need to have an Oracle account to access the Oracle Container Registry and accept the license agreement to access the WebLogic container images [here](https://container-registry.oracle.com/ords/ocr/ba/middleware/weblogic). If you don't have an account, you can create one for free at [https://profile.oracle.com/myprofile/account/create-account.jspx](https://profile.oracle.com/myprofile/account/create-account.jspx).
+[^ocrlogin]: You need to have an Oracle account to access the Oracle Container Registry and accept the license agreement to access the WebLogic container images [here](https://container-registry.oracle.com/ords/ocr/ba/middleware/weblogic). If you don't have an account, you can create one for free at [Create your Oracle Account](https://profile.oracle.com/myprofile/account/create-account.jspx).

@@ -122,14 +122,14 @@ podman run --rm -it -p 9002:9002 -p 7001:7001 --name wlsadmin --hostname wlsadmi
 
 ### Step 4: Install and generate the War file
 
+> [!IMPORTANT]
+> This command is skipping the tests to speed up the build process. If you want to run the tests, you may need to migrate the test packages to versions supported by Java 17 or 21, after that, you can run the tests by removing the `-DskipTests` option.
+
 1. Build the Spring Framework PetClinic example:
 
     ```shell
     mvn clean package -DskipTests
     ```
-
-  > [!IMPORTANT]
-  > This command is skipping the tests to speed up the build process. If you want to run the tests, you may need to migrate the test packages to versions supported by Java 17 or 21, after that, you can run the tests by removing the `-DskipTests` option.
 
 1. Locate the war file in the `target` folder:
 

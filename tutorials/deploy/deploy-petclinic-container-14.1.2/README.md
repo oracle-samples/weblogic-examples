@@ -27,6 +27,9 @@ Follow these steps to deploy the Spring Framework PetClinic example on WebLogic 
 
 Make sure you have a WebLogic Server 14.1.2 container running. You can use Docker or Podman to run the container.
 
+> [!NOTE]
+> This image is the base image running with JDK 21 on Oracle Linux 9. You can use any variant of the image that suits your environment or tests.
+
 <details open>
 
 <summary>Using Docker</summary>
@@ -44,10 +47,6 @@ Pull the WebLogic Server 14.1.2 image from the Oracle Container Registry.
   ```shell
   docker pull docker pull container-registry.oracle.com/middleware/weblogic:14.1.2.0-generic-jdk21-ol9
   ```
-
-> [!NOTE]
-> This image is the base image running with JDK 21 on Oracle Linux 9. You can use any variant of the image that suits your environment or tests.
-
 </details>
 
 <details>
@@ -68,17 +67,18 @@ Pull the WebLogic Server 14.1.2 image from the Oracle Container Registry.
   podman pull docker pull container-registry.oracle.com/middleware/weblogic:14.1.2.0-generic-jdk21-ol9
   ```
 
-> [!NOTE]
-> This image is the base image running with JDK 21 on Oracle Linux 9. You can use any variant of the image that suits your environment or tests.
-
 </details>
 
 ### Step 2: Have your WebLogic Server 14.1.2 container running
 
 Run the WebLogic Server 14.1.2 container with a empty domain.
 
-<details open>
+> [!TIP]
+> This command runs the WebLogic Server 14.1.2 container with the admin server running on port `7001` and the management console running on port `9002`. The domain properties file is mounted to the container to set the user name and password for the WebLogic Server Administration Console.
+> Change the user name and password in the `domain.properties` file to suit your environment; do not use the default values.
 
+<details open>
+  
 <summary>Using Docker</summary>
 
 ```shell
@@ -88,10 +88,6 @@ password=securepassword
 EOF
 docker run --rm -it -p 9002:9002 -p 7001:7001 --name wlsadmin --hostname wlsadmin -v ./domain.properties:/u01/oracle/properties/domain.properties container-registry.oracle.com/middleware/weblogic:14.1.2.0-generic-jdk21-ol9
 ```
-
-> [!TIP]
-> This command runs the WebLogic Server 14.1.2 container with the admin server running on port `7001` and the management console running on port `9002`. The domain properties file is mounted to the container to set the user name and password for the WebLogic Server Administration Console.
-> Change the user name and password in the `domain.properties` file to suit your environment; do not use the default values.
 
 </details>
 
@@ -106,10 +102,6 @@ password=securepassword
 EOF
 podman run --rm -it -p 9002:9002 -p 7001:7001 --name wlsadmin --hostname wlsadmin -v ./domain.properties:/u01/oracle/properties/domain.properties container-registry.oracle.com/middleware/weblogic:14.1.2.0-generic-jdk21-ol9
 ```
-
-> [!TIP]
-> This command runs the WebLogic Server 14.1.2 container with the admin server running on port `7001` and the management console running on port `9002`. The domain properties file is mounted to the container to set the user name and password for the WebLogic Server Administration Console.
-> Change the user name and password in the `domain.properties` file to suit your environment; do not use the default values.
 
 </details>
 
@@ -160,8 +152,8 @@ Access the Spring Framework PetClinic example application using the WebLogic Ser
 
 Open a browser and go to:
 
-    ```shell
-    http://localhost:7001/petclinic
-    ```
+  ```shell
+  http://localhost:7001/petclinic
+  ```
 
 [^ocrlogin]: You need to have an Oracle account to access the Oracle Container Registry and accept the license agreement to access the WebLogic container images [here](https://container-registry.oracle.com/ords/ocr/ba/middleware/weblogic). If you don't have an account, you can create one for free at [Create your Oracle Account](https://profile.oracle.com/myprofile/account/create-account.jspx).

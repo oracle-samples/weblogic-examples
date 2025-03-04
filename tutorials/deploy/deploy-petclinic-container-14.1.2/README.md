@@ -2,6 +2,9 @@
 
 This tutorial demonstrates how to deploy the [Spring Framework PetClinic](/samples/spring-framework-petclinic-12.2.1.4/) example application on WebLogic Server 14.1.2 running in a container (Docker or Podman, or other preference).
 
+[!TIP]
+If you want to deploy the example application to WebLogic Server 15.1.1 (BETA), first follow the [Migrate Spring Framework PetClinic to WLS 15.1.1(BETA)](../../migrate/spring-framework-petclinic-15.1.1/README.md) tutorial, then follow the procedure here.
+
 ## Prerequisites
 
 Before starting this tutorial, make sure you have the following:

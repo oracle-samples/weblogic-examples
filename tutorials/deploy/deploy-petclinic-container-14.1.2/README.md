@@ -146,45 +146,7 @@ Deploy the Spring Framework PetClinic example to the WebLogic Server 14.1.2 cont
 
 Optionally, if you have a WebLogic 15.1.1 domain available, deploy the Spring Framework PetClinic example application using your standard deployment tools.
 
-### Step 6: Update Cache option on Spring Framework PetClinic example
-
-Spring Framework 6.x deprecated the `ehcache` 2.0 together with the `org.springframework.cache.ehcache.EhCacheCacheManager` class. When upgrading to Spring Framework 6.x, you need to chose your cache provider and update the configuration accordingly. As theres no default cache, for this example we will be using caffeine. To update the cache provider you need to do the following:
-
-Add the dependency to the `pom.xml` file:
-
-```xml
-<dependency>
-    <groupId>com.github.ben-manes.caffeine</groupId>
-    <artifactId>caffeine</artifactId>
-    <version>3.1.8</version>
-</dependency>
-```
-
-Update the `tools-config.xml` file to use the `CaffeineCacheManager`:
-
-Comment or remove the `ehcache` configuration:
-
-```xml
-    <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager"
-        p:cacheManager-ref="ehcache"/>
-
-    <bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean"
-        p:configLocation="classpath:cache/ehcache.xml"/>
-```
-
-Replace with:
-```xml
-    <bean id="cacheManager" class="org.springframework.cache.caffeine.CaffeineCacheManager">
-        <property name="cacheNames">
-            <set>
-                <value>default</value>
-                <value>vets</value>
-            </set>
-        </property>
-    </bean>
-```
-
-### Step 7: Access the Spring Framework PetClinic example
+### Step 6: Access the Spring Framework PetClinic example
 
 Access the Spring Framework PetClinic example application using the WebLogic Server port.
 

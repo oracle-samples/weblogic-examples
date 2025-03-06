@@ -76,7 +76,6 @@ OpenRewrite updates the `spring-framework-petclinic-12.2.1.4` code in the follow
   - Updates Spring Framework APIs to version 6.2.
   - Sets proper Hibernate API versions to work with Java 21 and Jakarta EE 9.1.
 
-
 ### Step 3: Review the results
 
 The easiest way to see the results of the upgrade is to compare the updated files to the previous version in GitHub or in your IDE.
@@ -89,6 +88,49 @@ The following image shows a source file with code changes applied:
 
 ![source file with changes](../../images/coffee-java-sbs.png)
 
-### Step 4: Deploy the application
+### Step 4: Update Cache option on Spring Framework PetClinic example
+
+Spring Framework 6.x deprecated the `ehcache` 2.0 together with the `org.springframework.cache.ehcache.EhCacheCacheManager` class. When upgrading to Spring Framework 6.x, you need to chose your cache provider and update the configuration accordingly.
+
+Here the list of Spring Framework 6.x supported cache providers: [Supported Cache Providers](https://docs.spring.io/spring-boot/docs/3.0.8/reference/html/io.html#io.caching.provider)
+
+As theres no default cache, for this example we will be using caffeine. To update the cache provider you need to do the following:
+
+Add the dependency to the `pom.xml` file:
+
+```xml
+<dependency>
+    <groupId>com.github.ben-manes.caffeine</groupId>
+    <artifactId>caffeine</artifactId>
+    <version>3.1.8</version>
+</dependency>
+```
+
+Update the `tools-config.xml` file to use the `CaffeineCacheManager`:
+
+Comment or remove the `ehcache` configuration:
+
+```xml
+    <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager"
+        p:cacheManager-ref="ehcache"/>
+
+    <bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean"
+        p:configLocation="classpath:cache/ehcache.xml"/>
+```
+
+Replace with:
+
+```xml
+    <bean id="cacheManager" class="org.springframework.cache.caffeine.CaffeineCacheManager">
+        <property name="cacheNames">
+            <set>
+                <value>default</value>
+                <value>vets</value>
+            </set>
+        </property>
+    </bean>
+```
+
+### Step 5: Deploy the application
 
 Optionally, if you have a WebLogic 15.1.1 domain available, deploy the Spring Framework PetClinic example application using your standard deployment tools.

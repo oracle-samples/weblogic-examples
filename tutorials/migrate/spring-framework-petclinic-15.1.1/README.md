@@ -131,6 +131,6 @@ Replace with:
     </bean>
 ```
 
-### Step 4: Deploy the application
+### Step 5: Deploy the application
 
 Optionally, if you have a WebLogic 15.1.1 domain available, deploy the Spring Framework PetClinic example application using your standard deployment tools.

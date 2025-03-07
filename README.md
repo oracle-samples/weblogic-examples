@@ -1,4 +1,4 @@
-# WebLogic Examples
+# WebLogic Examples and Tutorials
 
 Welcome to the WebLogic Examples repository! Here, you'll find tutorials and examples that will help you get started with WebLogic quickly. Whether you're a seasoned developer or just beginning your journey, these examples will showcase the powerful features of WebLogic and help you hit the ground running. Dive in and explore the possibilities!
 

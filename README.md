@@ -16,12 +16,12 @@ cd weblogic-examples
 
 ### Examples
 
-| Example | Source | Description | Runs on 15.1.1 | 14.1.2 | 12.2.1.4 | Builder | Highlights | Notes |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [Basic Faces](./samples/basicfaces/README.md) | `basicfaces` [repo](./samples/basicfaces/) | A simple JSF application that demonstrates how to deploy a web application to WebLogic. | ✅ 🟡 | ✅ | ✅ | Gradle | JSF | 🟡 Not optimized for Jakarta EE 9.1 descriptors. |
+| Example | Source | Description | Runs on 15.1.1 | 14.1.2 | 12.2.1.4 | Builder | Highlights |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| [Basic Faces](./samples/basicfaces/README.md) | `basicfaces` [repo](./samples/basicfaces/) | A simple JSF application that demonstrates how to deploy a web application to WebLogic. | ✅ **NOTE**: Not optimized for Jakarta EE 9.1 descriptors. | ✅ | ✅ | Gradle | JSF |
 | [Simple Servlet](./samples/simpleservlet/README.md) | `simpleservlet` [repo](./samples/simpleservlet/) | A simple servlet application that demonstrates how to deploy a web application to WebLogic. | ✅ | ❌ | ❌ | Maven | servlet <br/> Jakarta EE 9.1 | |
-| [WebLogic Cafe](https://github.com/microsoft/weblogic-on-azure/blob/main/README.md) | Microsoft `weblogic-on-azure` [repo](https://github.com/microsoft/weblogic-on-azure) | A sample application that showcases the WebLogic on Azure solution. | 🟡 | ✅ | ✅ | Maven | OpenRewrite | 🟡 To deploy to WebLogic 15.1.1 (BETA), follow this [tutorial](./tutorials/migrate/weblogic-cafe-15.1.1/README.md) to upgrade the application to use Jakarta EE 9.1 and Java 21 on WebLogic. |
-| [Spring Framework PetClinic (WLS 12.2.1.4)](./samples/spring-framework-petclinic-12.2.1.4/README.md) | `spring-petclinic` [repo](./samples/spring-framework-petclinic-12.2.1.4/) | A well-known Spring Framework demo application modified to run on WebLogic 12.2.1.4. | 🟡 | ✅ | ✅ | Maven | Spring Framework 5.3.x | 🟡 To deploy to WebLogic 15.1.1 (BETA), follow this [tutorial](./tutorials/migrate/spring-framework-petclinic-15.1.1/README.md) to upgrade the application to use Jakarta EE 9.1, Java 21, and Spring Framework 6.2.x on WebLogic. |
+| [WebLogic Cafe](https://github.com/microsoft/weblogic-on-azure/blob/main/README.md) | Microsoft `weblogic-on-azure` [repo](https://github.com/microsoft/weblogic-on-azure) | A sample application that showcases the WebLogic on Azure solution. | ✅ To deploy to WebLogic 15.1.1 (BETA), follow this [tutorial](./tutorials/migrate/weblogic-cafe-15.1.1/README.md) to upgrade the application to use Jakarta EE 9.1 and Java 21 on WebLogic. | ✅ | ✅ | Maven | OpenRewrite |
+| [Spring Framework PetClinic (WLS 12.2.1.4)](./samples/spring-framework-petclinic-12.2.1.4/README.md) | `spring-petclinic` [repo](./samples/spring-framework-petclinic-12.2.1.4/) | A well-known Spring Framework demo application modified to run on WebLogic 12.2.1.4. | ✅ To deploy to WebLogic 15.1.1 (BETA), follow this [tutorial](./tutorials/migrate/spring-framework-petclinic-15.1.1/README.md) to upgrade the application to use Jakarta EE 9.1, Java 21, and Spring Framework 6.2.x on WebLogic. | ✅ | ✅ | Maven | Spring Framework 5.3.x |
 
 Also, check out the tutorials and follow the instructions to run them.
 

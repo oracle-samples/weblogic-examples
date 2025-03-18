@@ -18,11 +18,46 @@ We'll step through this tutorial using the Spring Framework Pet Clinic example t
     git clone https://github.com/oracle-samples/weblogic-examples.git
     ```
 
-1. Go to the `spring-framework-petclinic-12.2.1.4` folder:
+1. Go to the `deploy-petclinic-weblogic-12.2.1.4` tutorial folder:
 
     ```shell
-    cd weblogic-examples/samples/spring-framework-petclinic-12.2.1.4
+    cd weblogic-examples/tutorials/deploy/deploy-petclinic-weblogic-12.2.1.4
+    ls -a
+     total 24
+    -rwxrwxr-x. 1 opc opc  5002 Mar 18 05:54 init_petclinic.sh
+    -rw-rw-r--. 1 opc opc 10196 Mar 18 06:08 README.md    
+    -rw-rw-r--. 1 opc opc  1166 Mar 18 00:50 weblogic.xml
     ```
+
+1. Update `Spring Framework Petclinic 5.3.x` fork with WebLogic dependencies:
+
+This step runs script `init_petclinic.sh` script to clone branch 5.3.x from [spring-projects/spring-framework-petclinic](https://github.com/spring-petclinic/spring-framework-petclinic/tree/5.3.x) and update it with WebLogic dependencies.
+
+```shell
+    bash init_petclinic.sh
+``` 
+Example output after WebLogic dependencies has been added
+
+   ```shell 
+        Cloning into './spc-b_5_3_x'...
+        remote: Enumerating objects: 6172, done.
+        remote: Counting objects: 100% (824/824), done.
+        remote: Compressing objects: 100% (48/48), done.
+        remote: Total 6172 (delta 790), reused 776 (delta 776), pack-reused 5348 (from 1)
+        Receiving objects: 100% (6172/6172), 1.30 MiB | 37.05 MiB/s, done.
+        Resolving deltas: 100% (3042/3042), done.
+        Weblogic.xml added...
+        layout.tag updated...
+        localDate.tag updated...
+        default handler set in Spring Framework config...
+        DONE updating Spring Petclinic Framework branch 5.3.x
+        Exiting...
+   ```
+1. Change directory to the Spring Framework PetClinic cloned repository:
+
+ ```shell
+ cd spc-b_5_3_x   #or directory name for cloned Spring Framework Petclinic repository 
+ ```
 
 ### Step 2: Sync Maven dependencies
 
@@ -38,10 +73,10 @@ Or, you can use other commands as well, such as `mvn dependency:resolve`.
 
 For this example, we will upgrade the Spring Framework PetClinic application to run on WebLogic Server 15.1.1 with JDK 21, including Jakarta EE 9.1. Alternatively, you can upgrade the application to run on WebLogic Server 15.1.1 with JDK 17.
 
-1. Open a terminal at the `spring-framework-petclinic-12.2.1.4` folder.
+1. Open a terminal at the `spc-b_5_3_x` folder. Note that `spc-b_5_3_x` folder name can be replaced when executing `init_petclinic.sh` script
 
     You must open to the folder where the POM file is located:
-    ``` weblogic-examples/samples/spring-framework-petclinic-12.2.1.4 ```
+    ``` weblogic-examples/tutorials/deploy/deploy-petclinic-weblogic-12.2.1.4/spc-b_5_3_x```
 
     Preferably, you should open a terminal within your IDE so that you can easily review changes to the source files after running the recipes.
 

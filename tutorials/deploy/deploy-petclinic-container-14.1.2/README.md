@@ -105,7 +105,7 @@ podman run --rm -it -p 9002:9002 -p 7001:7001 --name wlsadmin --hostname wlsadmi
 
 </details>
 
-### Step 3: Clone the `weblogic-examples` repo with the Spring Framework PetClinic example
+### Step 3: Clone the `weblogic-examples` repo with the Spring Framework PetClinic repository
 
 1. Clone the `weblogic-examples` repo:
 
@@ -113,13 +113,44 @@ podman run --rm -it -p 9002:9002 -p 7001:7001 --name wlsadmin --hostname wlsadmi
     git clone https://github.com/oracle-samples/weblogic-examples.git
     ```
 
-1. Go to the `spring-framework-petclinic-12.2.1.4` folder:
+2. Go to the `deploy-petclinic-weblogic-12.2.1.4` tutorial folder:
 
     ```shell
-    cd weblogic-examples/samples/spring-framework-petclinic-12.2.1.4
+    cd weblogic-examples/tutorials/deploy/deploy-petclinic-weblogic-12.2.1.4
+    ls -a
+     total 24
+    -rwxrwxr-x. 1 opc opc  5002 Mar 18 05:54 init_petclinic.sh
+    -rw-rw-r--. 1 opc opc 10196 Mar 18 06:08 README.md    
+    -rw-rw-r--. 1 opc opc  1166 Mar 18 00:50 weblogic.xml
     ```
 
-### Step 4: Install and generate the WAR file
+
+### Step 4: Update `Spring Framework Petclinic 5.3.x` fork with WebLogic dependencies:
+
+This step runs script init_petclinic.sh script to clone branch 5.3.x from Spring Framework Repository and update it with WebLogic dependencies.
+
+```shell
+    bash init_petclinic.sh
+``` 
+Example output after WebLogic dependencies has been added
+
+   ```shell 
+        Cloning into './spc-b_5_3_x'...
+        remote: Enumerating objects: 6172, done.
+        remote: Counting objects: 100% (824/824), done.
+        remote: Compressing objects: 100% (48/48), done.
+        remote: Total 6172 (delta 790), reused 776 (delta 776), pack-reused 5348 (from 1)
+        Receiving objects: 100% (6172/6172), 1.30 MiB | 37.05 MiB/s, done.
+        Resolving deltas: 100% (3042/3042), done.
+        Weblogic.xml added...
+        layout.tag updated...
+        localDate.tag updated...
+        default handler set in Spring Framework config...
+        DONE updating Spring Petclinic Framework branch 5.3.x
+        Exiting...
+   ```
+
+### Step 5: Build the WAR file
 
 > [!IMPORTANT]
 > This command is skipping the tests to speed up the build process. If you want to run the tests, you may need to migrate the test packages to versions supported by Java 17 or 21. After that, you can run the tests by removing the `-DskipTests` option.
@@ -127,6 +158,7 @@ podman run --rm -it -p 9002:9002 -p 7001:7001 --name wlsadmin --hostname wlsadmi
 1. Build the Spring Framework PetClinic example:
 
     ```shell
+    cd spc-b_5_3_x #or directory name for cloned Spring Framework Petclinic repository
     mvn clean package -DskipTests
     ```
 
@@ -136,7 +168,8 @@ podman run --rm -it -p 9002:9002 -p 7001:7001 --name wlsadmin --hostname wlsadmi
     ls target/petclinic.war
     ```
 
-### Step 5: Deploy the Spring Framework PetClinic example
+
+### Step 6: Deploy the Spring Framework PetClinic example
 
 Deploy the Spring Framework PetClinic example to the WebLogic Server 14.1.2 container using the WebLogic Server Remote Console.
 
@@ -146,7 +179,7 @@ Deploy the Spring Framework PetClinic example to the WebLogic Server 14.1.2 cont
 
 Optionally, if you have a WebLogic 15.1.1 domain available, deploy the Spring Framework PetClinic example application using your standard deployment tools.
 
-### Step 6: Access the Spring Framework PetClinic example
+### Step 7: Access the Spring Framework PetClinic example
 
 Access the Spring Framework PetClinic example application using the WebLogic Server port.
 

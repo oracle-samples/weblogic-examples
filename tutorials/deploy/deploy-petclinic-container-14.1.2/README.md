@@ -78,7 +78,7 @@ Run the WebLogic Server 14.1.2 container with a empty domain.
 > Change the user name and password in the `domain.properties` file to suit your environment; do not use the default values.
 
 <details open>
-  
+
 <summary>Using Docker</summary>
 
 ```shell
@@ -125,16 +125,16 @@ podman run --rm -it -p 9002:9002 -p 7001:7001 --name wlsadmin --hostname wlsadmi
     ```
 
 
-### Step 4: Update `Spring Framework Petclinic 5.3.x` fork with WebLogic dependencies:
+### Step 4: Update the `Spring Framework PetClinic 5.3.x` fork with WebLogic dependencies
 
-This step runs script init_petclinic.sh script to clone branch 5.3.x from Spring Framework Repository and update it with WebLogic dependencies.
+This step runs the `init_petclinic.sh` script to clone the 5.3.x branch from the Spring Framework repository and update it with WebLogic dependencies.
 
 ```shell
     bash init_petclinic.sh
-``` 
-Example output after WebLogic dependencies has been added
+```
+Example output after WebLogic dependencies have been added.
 
-   ```shell 
+   ```shell
         Cloning into './spc-b_5_3_x'...
         remote: Enumerating objects: 6172, done.
         remote: Counting objects: 100% (824/824), done.
@@ -158,7 +158,7 @@ Example output after WebLogic dependencies has been added
 1. Build the Spring Framework PetClinic example:
 
     ```shell
-    cd spc-b_5_3_x #or directory name for cloned Spring Framework Petclinic repository
+    cd spc-b_5_3_x   #or directory name for cloned Spring Framework PetClinic repository
     mvn clean package -DskipTests
     ```
 

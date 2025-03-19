@@ -37,6 +37,7 @@ cd weblogic-examples
 | [Migrate WebLogic Cafe to WLS 15.1.1(BETA)](./tutorials/migrate/weblogic-cafe-15.1.1/README.md) | This tutorial shows you how to upgrade the WebLogic Cafe sample application to WebLogic 15.1.1 (BETA), Java 21, and Jakarta EE 9.1. |
 | [Migrate Spring Framework PetClinic to WLS 15.1.1(BETA)](./tutorials/migrate/spring-framework-petclinic-15.1.1/README.md) | This tutorial shows you how to upgrade the Spring Framework PetClinic sample application to WebLogic 15.1.1 (BETA), Java 21, Jakarta EE 9.1, and Spring Framework 6.2.x. |
 | [Deploy Spring Framework PetClinic to WLS 14.1.2 running in a container](./tutorials/deploy/deploy-petclinic-container-14.1.2/README.md) | This tutorial shows you how to deploy the Spring Framework PetClinic 12.2.1.4 example application on WebLogic Server 14.1.2 running in a container (Docker or Podman). |
+| [Deploy Spring Framework PetClinic to WLS 12.2.1.4](./tutorials/deploy/deploy-petclinic-weblogic-12.2.1.4/README.md) | This tutorial shows you how to deploy the Spring Framework PetClinic 12.2.1.4 example application on WebLogic Server 12.2.1.4 running on an Oracle Linux host. |
 
 ## Get help
 

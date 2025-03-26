@@ -1,0 +1,16 @@
+# Migration Tutorials Authors/owners
+/tutorials/migrate/weblogic-cafe-14.1.2 @david-cabelus-oracle
+/tutorials/migrate/weblogic-cafe-15.1.1 @david-cabelus-oracle
+/tutorials/migrate/spring-framework-petclinic-15.1.1 @junior
+
+# Deploy Labs Tutorials Authors/owners
+/tutorials/deploy/deploy-petclinic-weblogic-12.2.1.4 @j2joi
+/tutorials/deploy/deploy-petclinic-container-14.1.2 @junior
+/tutorials/deploy/petclinic-in-container-14.1.2 @junior
+
+# Samples Owners
+/samples/basicfaces @junior
+/samples/basic/basicfaces @junior
+
+#
+/.github/CODEOWNERS @junior

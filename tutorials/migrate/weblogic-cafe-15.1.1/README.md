@@ -22,28 +22,30 @@ We'll step through this tutorial using the WebLogic Cafe example that is availab
 
 ### Step 2: Sync Maven dependencies
 
-For OpenRewrite to run, Maven dependencies must be resolved. If needed, run `mvn clean install` for missing dependencies:
+For OpenRewrite to run, Maven dependencies must be resolved. If needed, run `mvn clean install` for missing dependencies.
 
-```shell
-mvn clean install
-```
+1. Open a terminal at the `weblogic-cafe` folder.
 
-Or, you can use other commands as well, such as `mvn dependency:resolve`.
+     You must open to the folder where the POM file is located:
+     ``` weblogic-on-azure/javaee/weblogic-cafe ```
+
+     Preferably, you should open a terminal within your IDE so that you can review the changes to the source files.
+
+     ![VSCode - open an integrated terminal](../../images/integ-terminal-vscode.png)
+
+1. Run the following command for missing dependencies.     
+
+     ```shell
+     mvn clean install
+     ```
+
+     Or, you can use other commands as well, such as `mvn dependency:resolve`.
 
 ### Step 3: Run the Maven command to run OpenRewrite
 
 For this example, we will upgrade the WebLogic Cafe application to run on WebLogic Server 15.1.1 with JDK 21, including Jakarta EE 9.1. Alternatively, you can upgrade the application to run on WebLogic Server 15.1.1 with JDK 17.
 
-1. Open a terminal at the `weblogic-cafe` folder.
-
-    You must open to the folder where the POM file is located:
-    ``` weblogic-on-azure/javaee/weblogic-cafe ```
-
-    Preferably, you should open a terminal within your IDE so that you can review the changes to the source files.
-
-    ![VSCode - open an integrated terminal](../../images/integ-terminal-vscode.png)
-
-1. Run the following command to run OpenRewrite:
+1. From the terminal open at the `weblogic-cafe` folder, run the following command to run OpenRewrite:
 
     ```shell
     mvn -U org.openrewrite.maven:rewrite-maven-plugin:run \
@@ -68,7 +70,7 @@ OpenRewrite updates the `weblogic-cafe` code in the following ways:
   - Updates WebLogic API dependencies and related statements.
   - For removed APIs with no replacement, OpenRewrite inserts a comment in the code stating that the API usage needs to be resolved or removed.
 
-### Step 3: Review the results
+### Step 4: Review the results
 
 The easiest way to see the results of the upgrade is to compare the updated files to the previous version in GitHub or in your IDE.
 
@@ -80,7 +82,7 @@ The following image shows a source file with code changes applied:
 
 ![source file with changes](../../images/coffee-java-sbs.png)
 
-### Step 4: Build and deploy the application
+### Step 5: Build and deploy the application
 
 To build the updated application, run this command:
 ```shell
@@ -89,7 +91,7 @@ mvn clean package -Dmaven.test.skip
 
 Optionally, if you have a WebLogic 15.1.1 domain available, deploy the WebLogic Cafe example application using your standard deployment tools, such as the [WebLogic Remote Console](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-remote-console/administer/set-console.html).
 
-As supplied, the application needs a database and a JDBC datasource configuration to deploy successfully. Instructions for setting up a PostgreSQL database and a JDBC datasource are available in the original [example instructions](https://github.com/microsoft/weblogic-on-azure/blob/main/javaee/README.md).
+As supplied, the application needs a database and a JDBC data source configuration to deploy successfully. Instructions for setting up a PostgreSQL database and a JDBC data source are available in the original [example instructions](https://github.com/microsoft/weblogic-on-azure/blob/main/javaee/README.md).
 
 #### Quick-Deployment option
 

@@ -29,7 +29,9 @@ For OpenRewrite to run, Maven dependencies must be resolved. If needed, run `mvn
      You must open to the folder where the POM file is located:
      ``` weblogic-on-azure/javaee/weblogic-cafe ```
 
-     **Preferably**, you should open a terminal within your IDE.
+     Preferably, you should open a terminal within your IDE so that you can review the changes to the source files.
+
+     ![VSCode - open an integrated terminal](../../images/integ-terminal-vscode.png)
 
 1. Run the following command for missing dependencies.     
 
@@ -52,10 +54,6 @@ For this example, we will upgrade the WebLogic Cafe application to run on WebLog
       -Drewrite.exportDatatables=true
     ```
 **Note** that this command updates the application to use Java 21. If you want to upgrade to Java 17 instead, replace `UpgradeToJava21` with `UpgradeToJava17`.
-
-     Within your IDE, you can review the changes to the source files.
-
-     ![VSCode - open an integrated terminal](../../images/integ-terminal-vscode.png)
 
 The command applies the following recipes:
 

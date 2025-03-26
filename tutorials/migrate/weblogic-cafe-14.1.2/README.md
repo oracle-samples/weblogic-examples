@@ -29,7 +29,9 @@ For OpenRewrite to run, Maven dependencies must be resolved. If needed, run `mvn
      You must open to the folder where the POM file is located:
      ``` weblogic-on-azure/javaee/weblogic-cafe ```
 
-     **Preferably**, you should open a terminal within your IDE.
+     Preferably, you should open a terminal within your IDE so that you can review the changes to the source files.
+
+     ![VSCode - open an integrated terminal](../../images/integ-terminal-vscode.png)
 
 1. Run the following command for missing dependencies.     
 
@@ -52,9 +54,6 @@ For this example, we will upgrade the WebLogic Cafe application to run on WebLog
     ```
 **Note** that this command updates the application to use Java 21. If you want to upgrade to Java 17 instead, replace `UpgradeToJava21` with `UpgradeToJava17`.
 
-     Within your IDE, you can review the changes to the source files.
-
-     ![VSCode - open an integrated terminal](../../images/integ-terminal-vscode.png)
 
 The command applies the following recipes:
 
@@ -88,7 +87,7 @@ To build the updated application, run this command:
 mvn clean package -Dmaven.test.skip
 ```
 
-Optionally, if you have a WebLogic 15.1.1 domain available, deploy the WebLogic Cafe example application using your standard deployment tools, such as the [WebLogic Remote Console](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-remote-console/administer/set-console.html).
+Optionally, if you have a WebLogic 14.1.2 domain available, deploy the WebLogic Cafe example application using your standard deployment tools, such as the [WebLogic Remote Console](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-remote-console/administer/set-console.html).
 
 As supplied, the application needs a database and a JDBC data source configuration to deploy successfully. Instructions for setting up a PostgreSQL database and a JDBC data source are available in the original [example instructions](https://github.com/microsoft/weblogic-on-azure/blob/main/javaee/README.md).
 

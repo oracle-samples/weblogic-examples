@@ -76,11 +76,11 @@ The easiest way to see the results of the upgrade is to compare the updated file
 
 For example, the following image shows file changes for the ```pom.xml``` file in VS Code:
 
-![pom file with changes](../../images/pom-sbs.png)
+![pom file with changes](../../images/1511-pom-sbs.png)
 
 The following image shows a source file with code changes applied:
 
-![source file with changes](../../images/coffee-java-sbs.png)
+![source file with changes](../../images/jk91-cafe-sbs.png)
 
 ### Step 5: Build and deploy the application
 

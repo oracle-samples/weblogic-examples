@@ -4,7 +4,7 @@ Oracle provides OpenRewrite recipes to help you upgrade your applications to new
 
 ## Spring Framework PetClinic example
 
-We'll step through this tutorial using the Spring Framework Pet Clinic example that is available in this GitHub repo: [`spring-framework-petclinic-12.2.1.4` sample](../../../samples/spring-framework-petclinic-12.2.1.4/). This is a fork of the approved [fork](https://github.com/spring-petclinic/spring-framework-petclinic/tree/5.3.x) from the Spring Team, a PetClinic version with a plain old Spring Framework 5.3.x configuration and with a 3-layer architecture (i.e. presentation --> service --> repository) and was modified to run on WebLogic 12.2.1.4. We will run the `rewrite-weblogic` recipes locally, so we'll need a copy of the code locally, too.
+We'll step through this tutorial using the Spring Framework Pet Clinic example : [`spring-framework-petclinic-12.2.1.4` sample](../../deploy/deploy-petclinic-weblogic-12.2.1.4/README.md). A PetClinic version developed on Spring Framework 5.3.x configuration and with a 3-layer architecture (i.e. presentation --> service --> repository) updated to be deployed on WebLogic 12.2.1.4. We will run the `rewrite-weblogic` recipes locally, so we'll need a copy of the code locally, too.
 
 ![Spring Framework PetClinic](https://cloud.githubusercontent.com/assets/838318/19727082/2aee6d6c-9b8e-11e6-81fe-e889a5ddfded.png)
 

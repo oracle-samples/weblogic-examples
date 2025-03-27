@@ -208,4 +208,14 @@ Open a browser and go to a URL like this [one](http://localhost:7001/petclinic/)
   http://localhost:7001/petclinic/
   ```
 
+<details>
+
+<summary>Acknowledgements</summary>
+
+- **Author** - Adao Oliveira Junior
+- **Contributors** - Adao Oliveira Junior
+- **Last Updated By/Date** - Adao Oliveira Junior/March 2025
+
+</details>
+
 [^ocrlogin]: You need to have an Oracle account to access the Oracle Container Registry and accept the license agreement to access the WebLogic container images [here](https://container-registry.oracle.com/ords/ocr/ba/middleware/weblogic). If you don't have an account, you can create one for free at [Create your Oracle Account](https://profile.oracle.com/myprofile/account/create-account.jspx).

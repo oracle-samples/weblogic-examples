@@ -64,7 +64,7 @@ Example output after WebLogic dependencies has been added
 For OpenRewrite to run, Maven dependencies must be resolved. If needed, run `mvn clean install` for missing dependencies:
 
 ```shell
-mvn clean install
+mvn clean install -DskipTests
 ```
 
 Or, you can use other commands as well, such as `mvn dependency:resolve`.

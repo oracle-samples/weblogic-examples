@@ -1,6 +1,6 @@
-# Deploy Spring Framework PetClinic to WLS 14.1.2 running in a container
+# Deploy Spring Framework 5.3.x PetClinic to WLS 14.1.2 running in a container
 
-This tutorial demonstrates how to deploy the [Spring Framework PetClinic](/samples/spring-framework-petclinic-12.2.1.4/) example application on WebLogic Server 14.1.2 running in a container (Docker or Podman, or other preference).
+This tutorial demonstrates how to deploy the [Spring Framework 5.3.x PetClinic](https://github.com/spring-petclinic/spring-framework-petclinic/tree/5.3.x) example application on WebLogic Server 14.1.2 running in a container (Docker or Podman, or other container preference).
 
 > [!TIP]
 > If you want to deploy the example application to WebLogic Server 15.1.1 (BETA), first follow the [Migrate Spring Framework PetClinic to WLS 15.1.1(BETA)](../../migrate/spring-framework-petclinic-15.1.1/README.md) tutorial, then follow the procedure here.
@@ -11,17 +11,19 @@ Before starting this tutorial, make sure you have the following:
 
 - [Docker](https://docs.docker.com/get-docker/) or [Podman](https://podman.io/getting-started/installation) installed.
 - Access to [Oracle WebLogic Server 14.1.2.0 Container Images](https://container-registry.oracle.com/ords/ocr/ba/middleware/weblogic) or have the [WebLogic Server 14.1.2](https://www.oracle.com/middleware/technologies/weblogic-server-installers-downloads.html) image available in your local repository.
-- The [Spring Framework PetClinic](/samples/spring-framework-petclinic-12.2.1.4/) example.
+- Java 17 or newer (full JDK not a JRE) installed. (To build and package the example application)
+- [Maven 3.5+](https://maven.apache.org/install.html) installed. (To build and package the example application)
+- [`git`](https://help.github.com/articles/set-up-git) command line tool installed. (To get the example application)
 
 ## Spring Framework PetClinic example
 
-We'll step through this tutorial using the Spring Framework PetClinic example that is available on this GitHub repo: [`spring-framework-petclinic-12.2.1.4`](../../../samples/spring-framework-petclinic-12.2.1.4/). This is a fork of the approved [fork](https://github.com/spring-petclinic/spring-framework-petclinic/tree/5.3.x) from the Spring Team, a PetClinic version with a plain Spring Framework 5.3.x configuration and with a 3-layer architecture (i.e. presentation --> service --> repository) and was modified to run on WebLogic 12.2.1.4 and 14.1.2.
+We'll step through this tutorial using the Spring Framework 5.3.x Pet Clinic example that is available [here](https://github.com/spring-petclinic/spring-framework-petclinic/tree/5.3.x) from the Spring Team, a PetClinic version with a plain old Spring Framework 5.3.x configuration and with a 3-layer architecture (i.e. presentation --> service --> repository).
 
 ![Spring Framework PetClinic](https://cloud.githubusercontent.com/assets/838318/19727082/2aee6d6c-9b8e-11e6-81fe-e889a5ddfded.png)
 
 ## Steps
 
-Follow these steps to deploy the Spring Framework PetClinic example on WebLogic Server 14.1.2 running in a container.
+Follow these steps to deploy the Spring Framework 5.3.x PetClinic example on WebLogic Server 14.1.2 running in a container.
 
 ### Step 1: Pull the WebLogic Server 14.1.2 image
 
@@ -105,50 +107,71 @@ podman run --rm -it -p 9002:9002 -p 7001:7001 --name wlsadmin --hostname wlsadmi
 
 </details>
 
-### Step 3: Clone the `weblogic-examples` repo with the Spring Framework PetClinic repository
+### Step 3: Clone the `spring-framework-petclinic` repo from its original source
 
-1. Clone the `weblogic-examples` repo:
-
-    ```shell
-    git clone https://github.com/oracle-samples/weblogic-examples.git
-    ```
-
-2. Go to the `deploy-petclinic-weblogic-12.2.1.4` tutorial folder:
+1. Clone the `spring-framework-petclinic` repo:
 
     ```shell
-    cd weblogic-examples/tutorials/deploy/deploy-petclinic-weblogic-12.2.1.4
-    ls -a
-     total 24
-    -rwxrwxr-x. 1 opc opc  5002 Mar 18 05:54 init_petclinic.sh
-    -rw-rw-r--. 1 opc opc 10196 Mar 18 06:08 README.md    
-    -rw-rw-r--. 1 opc opc  1166 Mar 18 00:50 weblogic.xml
+    git clone -b 5.3.x --single-branch https://github.com/spring-petclinic/spring-framework-petclinic.git
     ```
 
+1. Change to the `spring-framework-petclinic` directory:
 
-### Step 4: Update the `Spring Framework PetClinic 5.3.x` fork with WebLogic dependencies
+    ```shell
+    cd spring-framework-petclinic
+    ```
 
-This step runs the `init_petclinic.sh` script to clone the 5.3.x branch from the Spring Framework repository and update it with WebLogic dependencies.
+### Step 4: Prepare the Spring Framework 5.3.x PetClinic example to run on WebLogic Server 14.1.2
 
-```shell
-    bash init_petclinic.sh
-```
-Example output after WebLogic dependencies have been added.
+To run the Spring Framework 5.3.x PetClinic example on WebLogic Server 14.1.2, you need to do few updates, that can be done manually or using a special recipe to automatically do the changes.
 
-   ```shell
-        Cloning into './spc-b_5_3_x'...
-        remote: Enumerating objects: 6172, done.
-        remote: Counting objects: 100% (824/824), done.
-        remote: Compressing objects: 100% (48/48), done.
-        remote: Total 6172 (delta 790), reused 776 (delta 776), pack-reused 5348 (from 1)
-        Receiving objects: 100% (6172/6172), 1.30 MiB | 37.05 MiB/s, done.
-        Resolving deltas: 100% (3042/3042), done.
-        Weblogic.xml added...
-        layout.tag updated...
-        localDate.tag updated...
-        default handler set in Spring Framework config...
-        DONE updating Spring Petclinic Framework branch 5.3.x
-        Exiting...
-   ```
+<!-- <details>
+
+<summary>Using OpenRewrite Recipes to automatically update</summary>
+
+1. Run the following command to run OpenRewrite:
+
+    ```shell
+    mvn -U org.openrewrite.maven:rewrite-maven-plugin:run \
+    -Drewrite.recipeArtifactCoordinates=com.oracle.weblogic.rewrite:rewrite-weblogic:RELEASE \
+    -Drewrite.activeRecipes=com.oracle.weblogic.rewrite.examples.spring.SetupSpringFrameworkPetClinicFor1412
+    ```
+
+</details> -->
+
+<details open>
+
+<summary>Doing Manual updates</summary>
+
+1. Update the DefaultServletHandler.
+
+    If you run the Spring Framework 5.3.x PetClinic example on any Application server, you need to do that update as documented here [https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-config/default-servlet-handler.html](https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-config/default-servlet-handler.html).
+
+    Go to the `spring-framework-petclinic/src/main/resources/spring/mvc-core-config.xml` file and update the `<mvc:default-servlet-handler />` to include `default-servlet-name="DefaultServlet"`.
+
+    ```xml
+    <mvc:default-servlet-handler />
+    ```
+
+    to
+
+    ```xml
+    <mvc:default-servlet-handler default-servlet-name="DefaultServlet"/>
+    ```
+
+1. Configure to use taglib 2.1.
+
+    Create a file named `implicit.tld` in the `spring-framework-petclinic/src/main/webapp/WEB-INF/tags/` directory and add the following content:
+
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <taglib version="2.1" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd">
+        <tlib-version>1.0</tlib-version>
+        <short-name>implicit</short-name>
+    </taglib>
+    ```
+
+</details>
 
 ### Step 5: Build the WAR file
 
@@ -158,7 +181,6 @@ Example output after WebLogic dependencies have been added.
 1. Build the Spring Framework PetClinic example:
 
     ```shell
-    cd spc-b_5_3_x   #or directory name for cloned Spring Framework PetClinic repository
     mvn clean package -DskipTests
     ```
 
@@ -168,7 +190,6 @@ Example output after WebLogic dependencies have been added.
     ls target/petclinic.war
     ```
 
-
 ### Step 6: Deploy the Spring Framework PetClinic example
 
 Deploy the Spring Framework PetClinic example to the WebLogic Server 14.1.2 container using the WebLogic Server Remote Console.
@@ -177,16 +198,24 @@ Deploy the Spring Framework PetClinic example to the WebLogic Server 14.1.2 cont
 
 1. [Deploy](https://docs-uat.us.oracle.com/en/middleware/fusion-middleware/weblogic-remote-console/administer/deploying-applications.html#GUID-6148F650-4FB8-4F4E-A578-C733D275C0A2) and start the Spring Framework PetClinic example application.
 
-Optionally, if you have a WebLogic 15.1.1 domain available, deploy the Spring Framework PetClinic example application using your standard deployment tools.
-
 ### Step 7: Access the Spring Framework PetClinic example
 
 Access the Spring Framework PetClinic example application using the WebLogic Server port.
 
-Open a browser and go to:
+Open a browser and go to a URL like this [one](http://localhost:7001/petclinic/):
 
   ```shell
-  http://localhost:7001/petclinic
+  http://localhost:7001/petclinic/
   ```
+
+<details>
+
+<summary>Acknowledgements</summary>
+
+- **Author** - Adao Oliveira Junior
+- **Contributors** - Adao Oliveira Junior
+- **Last Updated By/Date** - Adao Oliveira Junior/March 2025
+
+</details>
 
 [^ocrlogin]: You need to have an Oracle account to access the Oracle Container Registry and accept the license agreement to access the WebLogic container images [here](https://container-registry.oracle.com/ords/ocr/ba/middleware/weblogic). If you don't have an account, you can create one for free at [Create your Oracle Account](https://profile.oracle.com/myprofile/account/create-account.jspx).

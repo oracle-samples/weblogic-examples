@@ -11,7 +11,7 @@ We'll step through this tutorial using the Spring Framework Pet Clinic example t
 ### Step 1: Start by making sure that you have the prerequisites
 
 1. Make sure that you have Java 8 or later installed.
-1. Make sure that you have Maven 3.x installed.
+1. Make sure that you have Maven (minimum version 3.6, with recommended version, 3.9.9) installed.
 1. Clone the `weblogic-examples` repo:
 
     ```shell

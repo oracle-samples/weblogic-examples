@@ -25,8 +25,7 @@ cd weblogic-examples
 
 [^1]: To deploy WebLogic Cafe to WebLogic 15.1.1 (BETA), follow this [tutorial](https://github.com/oracle-samples/weblogic-examples/blob/main/tutorials/migrate/weblogic-cafe-15.1.1/README.md) to upgrade the application to use Jakarta EE 9.1 and Java 21 on WebLogic.
 
-[^2]: To deploy Spring Framework PetClinic to WebLogic 15.1.1 (BETA), **first** follow the app migration [tutorial](https://github.com/oracle-samples/weblogic-examples/blob/main/tutorials/migrate/spring-framework-petclinic-15.1.1/README.md), then follow the deploy tutorial [here](https://github.com/oracle-samples/weblogic-examples/blob/main/tutorials/deploy/deploy-petclinic-container-14.1.2/README.md).
-
+[^2]: To deploy Spring Framework PetClinic to WebLogic 15.1.1 (BETA), **first** follow the app migration [tutorial](https://github.com/oracle-samples/weblogic-examples/blob/main/tutorials/migrate/spring-framework-petclinic-15.1.1/README.md), then follow either [deploy-in-container](https://github.com/oracle-samples/weblogic-examples/blob/main/tutorials/deploy/petclinic-in-container-14.1.2/README.md) or [deploy-traditional](https://github.com/oracle-samples/weblogic-examples/blob/main/tutorials/deploy/deploy-petclinic-weblogic-12.2.1.4/README.md) tutorial.
 
 
 ### Tutorials

@@ -196,7 +196,7 @@ Deploy the Spring Framework PetClinic example to the WebLogic Server 14.1.2 cont
 
 1. If not already installed, download and install the WebLogic Server Remote Console (WRC) from [`github.com/oracle/weblogic-remote-console`](https://github.com/oracle/weblogic-remote-console/releases).
 
-1. [Deploy](https://docs-uat.us.oracle.com/en/middleware/fusion-middleware/weblogic-remote-console/administer/deploying-applications.html#GUID-6148F650-4FB8-4F4E-A578-C733D275C0A2) and start the Spring Framework PetClinic example application.
+1. [Deploy](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-remote-console/administer/deploying-applications.html) and start the Spring Framework PetClinic example application.
 
 ### Step 7: Access the Spring Framework PetClinic example
 

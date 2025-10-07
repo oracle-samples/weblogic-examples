@@ -23,9 +23,9 @@ cd weblogic-examples
 | [WebLogic Cafe](https://github.com/microsoft/weblogic-on-azure/blob/main/README.md)                                                             | Microsoft `weblogic-on-azure` [repo](https://github.com/microsoft/weblogic-on-azure) | A sample application that showcases the WebLogic on Azure solution. | 🟡 [^1] | ✅ | ✅ | Maven | OpenRewrite |
 | [Spring Framework PetClinic (WLS 12.2.1.4)](./tutorials/deploy/deploy-petclinic-weblogic-12.2.1.4/README.md) | `spring-petclinic` [repo](./tutorials/deploy/deploy-petclinic-weblogic-12.2.1.4) | A well-known Spring Framework demo application modified to run on WebLogic 12.2.1.4. | 🟡 [^2] | ✅ | ✅ | Maven | Spring Framework 5.3.x |
 
-[^1]: To deploy WebLogic Cafe to WebLogic 15.1.1 (BETA), follow this [tutorial](https://github.com/oracle-samples/weblogic-examples/blob/main/tutorials/migrate/weblogic-cafe-15.1.1/README.md) to upgrade the application to use Jakarta EE 9.1 and Java 21 on WebLogic.
+[^1]: To deploy WebLogic Cafe to WebLogic 15.1.1, follow this [tutorial](https://github.com/oracle-samples/weblogic-examples/blob/main/tutorials/migrate/weblogic-cafe-15.1.1/README.md) to upgrade the application to use Jakarta EE 9.1 and Java 21 on WebLogic.
 
-[^2]: To deploy Spring Framework PetClinic to WebLogic 15.1.1 (BETA), **first** follow the app migration [tutorial](https://github.com/oracle-samples/weblogic-examples/blob/main/tutorials/migrate/spring-framework-petclinic-15.1.1/README.md), then follow either [deploy-in-container](https://github.com/oracle-samples/weblogic-examples/blob/main/tutorials/deploy/petclinic-in-container-14.1.2/README.md) or [deploy-traditional](https://github.com/oracle-samples/weblogic-examples/blob/main/tutorials/deploy/deploy-petclinic-weblogic-12.2.1.4/README.md) tutorial.
+[^2]: To deploy Spring Framework PetClinic to WebLogic 15.1.1, **first** follow the app migration [tutorial](https://github.com/oracle-samples/weblogic-examples/blob/main/tutorials/migrate/spring-framework-petclinic-15.1.1/README.md), then follow either [deploy-in-container](https://github.com/oracle-samples/weblogic-examples/blob/main/tutorials/deploy/petclinic-in-container-14.1.2/README.md) or [deploy-traditional](https://github.com/oracle-samples/weblogic-examples/blob/main/tutorials/deploy/deploy-petclinic-weblogic-12.2.1.4/README.md) tutorial.
 
 
 ### Tutorials
@@ -33,8 +33,8 @@ cd weblogic-examples
 | Tutorial | Description |
 | --- | --- |
 | [Migrate WebLogic Cafe to WLS 14.1.2](./tutorials/migrate/weblogic-cafe-14.1.2/README.md) | This tutorial shows you how to upgrade the WebLogic Cafe sample application to WebLogic 14.1.2 and Java 21. |
-| [Migrate WebLogic Cafe to WLS 15.1.1(BETA)](./tutorials/migrate/weblogic-cafe-15.1.1/README.md) | This tutorial shows you how to upgrade the WebLogic Cafe sample application to WebLogic 15.1.1 (BETA), Java 21, and Jakarta EE 9.1. |
-| [Migrate Spring Framework PetClinic to WLS 15.1.1(BETA)](./tutorials/migrate/spring-framework-petclinic-15.1.1/README.md) | This tutorial shows you how to upgrade the Spring Framework PetClinic sample application to WebLogic 15.1.1 (BETA), Java 21, Jakarta EE 9.1, and Spring Framework 6.2.x. |
+| [Migrate WebLogic Cafe to WLS 15.1.1](./tutorials/migrate/weblogic-cafe-15.1.1/README.md) | This tutorial shows you how to upgrade the WebLogic Cafe sample application to WebLogic 15.1.1, Java 21, and Jakarta EE 9.1. |
+| [Migrate Spring Framework PetClinic to WLS 15.1.1](./tutorials/migrate/spring-framework-petclinic-15.1.1/README.md) | This tutorial shows you how to upgrade the Spring Framework PetClinic sample application to WebLogic 15.1.1, Java 21, Jakarta EE 9.1, and Spring Framework 6.2.x. |
 | [Deploy Spring Framework PetClinic to WLS 14.1.2 running in a container](./tutorials/deploy/petclinic-in-container-14.1.2/README.md) | This tutorial shows you how to deploy the Spring Framework PetClinic 12.2.1.4 example application on WebLogic Server 14.1.2 running in a container (Docker or Podman). |
 | [Deploy Spring Framework PetClinic to WLS 12.2.1.4](./tutorials/deploy/deploy-petclinic-weblogic-12.2.1.4/README.md) | This tutorial shows you how to deploy the Spring Framework PetClinic 12.2.1.4 example application on WebLogic Server 12.2.1.4 running on an Oracle Linux host. |
 

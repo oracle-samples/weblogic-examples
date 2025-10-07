@@ -3,7 +3,7 @@
 This tutorial demonstrates how to deploy the [Spring Framework 5.3.x PetClinic](https://github.com/spring-petclinic/spring-framework-petclinic/tree/5.3.x) example application on WebLogic Server 14.1.2 running in a container (Docker or Podman, or other container preference).
 
 > [!TIP]
-> If you want to deploy the example application to WebLogic Server 15.1.1 (BETA), first follow the [Migrate Spring Framework PetClinic to WLS 15.1.1(BETA)](../../migrate/spring-framework-petclinic-15.1.1/README.md) tutorial, then follow the procedure here.
+> If you want to deploy the example application to WebLogic Server 15.1.1, first follow the [Migrate Spring Framework PetClinic to WLS 15.1.1](../../migrate/spring-framework-petclinic-15.1.1/README.md) tutorial, then follow the procedure here.
 
 ## Prerequisites
 

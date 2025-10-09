@@ -1,4 +1,4 @@
-# Migrate Spring Framework PetClinic to WLS 15.1.1 (BETA)
+# Migrate Spring Framework PetClinic to WLS 15.1.1
 
 Oracle provides OpenRewrite recipes to help you upgrade your applications to new WebLogic and Java versions, and to Jakarta EE. This tutorial demonstrates how to use the recipes to upgrade a sample application to run on WebLogic Server 15.1.1 with JDK 21 and Jakarta EE 9.1.
 

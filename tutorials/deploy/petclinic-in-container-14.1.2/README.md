@@ -11,8 +11,8 @@ Before starting this tutorial, make sure you have the following:
 
 - [Docker](https://docs.docker.com/get-docker/) or [Podman](https://podman.io/getting-started/installation) installed.
 - Access to [Oracle WebLogic Server 14.1.2.0 Container Images](https://container-registry.oracle.com/ords/ocr/ba/middleware/weblogic) or have the [WebLogic Server 14.1.2](https://www.oracle.com/middleware/technologies/weblogic-server-installers-downloads.html) image available in your local repository.
-- Java 17 or newer (full JDK not a JRE) installed. (To build and package the example application)
-- [Maven 3.5+](https://maven.apache.org/install.html) installed. (To build and package the example application)
+- Java 17 or later (full JDK not a JRE) installed. (To build and package the example application)
+- [Maven](https://maven.apache.org/install.html) (minimum version 3.6, with recommended version, 3.9.9) installed. (To build and package the example application)
 - [`git`](https://help.github.com/articles/set-up-git) command line tool installed. (To get the example application)
 
 ## Spring Framework PetClinic example
